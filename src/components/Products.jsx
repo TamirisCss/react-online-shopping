@@ -19,7 +19,27 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return <div>hello</div>;
+  return (
+    <div>
+      {loading && (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      )}
+      {data.map((product) => (
+        <div key={product.id} className="card">
+          <div>
+            <img src={product.image} alt="#" />
+          </div>
+          <div className="card-info">
+            <h6>{product.title}</h6>
+            <h6>{`Price: ${product.price}`}</h6>
+            <h6>{`Category: ${product.category}`}</h6>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Products;
