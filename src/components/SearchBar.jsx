@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
 
-
-
-
 const SearchBar = (props) => {
     const [searchValue, setSearchValue] = useState("");
 
@@ -29,16 +26,13 @@ const SearchBar = (props) => {
                 return (
                     <div className="flex p-8 flex-wrap py-8 w-72   text-center">
                         <div>
-                        <div className="">
+                        <div className="card">
                             {product.title},
                             </div>  
                             <div>{product.price}</div>
                             <img className=" w-20" src={product.image}></img>
-                           
                         </div>
                     </div>
-                
-
                 );
             })}
         </div>

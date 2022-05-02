@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar"
 
 
-const Products = () => {
+
+
+const Products = ({item}) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
@@ -25,12 +27,12 @@ const Products = () => {
   const hasProducts = data.length > 0;
 
   return (
-    <div>
+    <div className="card">
       {hasProducts ? <SearchBar products={data}/> : loading && <h1>Loading...</h1> }
       {data.map((product) => (
-        <div key={product.id} className="card">
+        <div key={product.id} >
           <div>
-            <img src={product.image} alt="#" />
+            <img src={product.image} alt="#" className="imageProduct " />
           </div>
           <div className="card-info">
             <h6>{product.title}</h6>
