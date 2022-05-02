@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import SearchBar from "../components/SearchBar"
+
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+
 
   useEffect(() => {
     setLoading(true);
@@ -19,13 +22,11 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const hasProducts = data.length > 0;
+
   return (
     <div>
-      {loading && (
-        <div>
-          <h1>Loading...</h1>
-        </div>
-      )}
+      {hasProducts ? <SearchBar products={data}/> : loading && <h1>Loading...</h1> }
       {data.map((product) => (
         <div key={product.id} className="card">
           <div>
@@ -38,8 +39,12 @@ const Products = () => {
           </div>
         </div>
       ))}
+      
+     
     </div>
   );
+
+  
 };
 
 export default Products;
