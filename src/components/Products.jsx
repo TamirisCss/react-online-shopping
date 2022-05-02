@@ -2,6 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 
+import { Button } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -38,21 +44,27 @@ const Products = () => {
       ) : (
         loading && <h1>Loading...</h1>
       )}
-      <div className="card">
+      <div className="cardContainer">
         {data.filter(filterSearch).map((product) => (
           <div key={product.id} className="productItem">
-            <div>
-              <img
-                src={product.image}
-                alt="#"
-                className="imageProduct "
-              />
+            <div className="iconsContainer">
+              <IconButton aria-label="add to favorites">
+                <FavoriteBorderIcon />
+              </IconButton>
+              <IconButton aria-label="add to cart">
+                <AddShoppingCartIcon />
+              </IconButton>
+            </div>
+            <div className="imageContainer">
+              <img src={product.image} alt="#" className="imageProduct " />
             </div>
             <div className="card-info">
               <h6>{product.title}</h6>
               <h6>{`Price: ${product.price}`}</h6>
               <h6>{`Category: ${product.category}`}</h6>
             </div>
+
+            <Button size="small">More details</Button>
           </div>
         ))}
       </div>
