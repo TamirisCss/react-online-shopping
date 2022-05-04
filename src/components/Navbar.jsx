@@ -10,6 +10,7 @@ import Menu from "@mui/material/Menu";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
+
 const Navbar = () => {
 
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -79,6 +80,7 @@ const Navbar = () => {
               <Badge badgeContent={17} color="error">
                 <ShoppingCartIcon />
               </Badge>
+
             </IconButton>
           </Box>
         </Toolbar>

@@ -1,14 +1,14 @@
 import "./style.css/Products.css";
 import Navbar from "./components/Navbar";
-import Products from "./components/Products";
+import Overview from "./Overview";
 
 const App = () => {
-  return (
-    <div className="App">
-      <Navbar />
-      <Products />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Navbar />
+            <Overview />
+        </div>
+    );
 };
 
 export default App;
