@@ -12,7 +12,8 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-    const [id, setId] = useState([1]);
+
+
 
     const onSearchChange = (event) => {
         setSearchValue(event.target.value);
@@ -21,6 +22,7 @@ const Products = () => {
     const filterSearch = (product) => {
         return product.title.toLowerCase().includes(searchValue);
     };
+
 
     useEffect(() => {
         setLoading(true);
@@ -46,8 +48,8 @@ const Products = () => {
                 loading && <h1>Loading...</h1>
             )}
             <div className="cardContainer">
-                {data.filter(filterSearch).map((product) => (
-                    <div key={product.id} className="productItem">
+                {data.filter(filterSearch).map(({id, image, title, price, category}) => (
+                    <div key={id}className="productItem">
                         <div className="iconsContainer">
                             <IconButton aria-label="add to favorites">
                                 <FavoriteBorderIcon />
@@ -58,17 +60,17 @@ const Products = () => {
                         </div>
                         <div className="imageContainer">
                             <img
-                                src={product.image}
+                                src={image}
                                 alt="#"
                                 className="imageProduct "
                             />
                         </div>
                         <div className="card-info">
-                            <h6>{product.title}</h6>
-                            <h6>{`Price: ${product.price}`}</h6>
-                            <h6>{`Category: ${product.category}`}</h6>
+                            <h6>{title}</h6>
+                            <h6>{`Price: ${price}`}</h6>
+                            <h6>{`Category: ${category}`}</h6>
                         </div>
-                        <Link to={`/productDetails`}>
+                        <Link to={`/productDetails/${id}`}>
                             <Button size="small">More details</Button>
                         </Link>
                     </div>
@@ -77,5 +79,6 @@ const Products = () => {
         </>
     );
 };
+
 
 export default Products;
