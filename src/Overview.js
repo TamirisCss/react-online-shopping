@@ -9,7 +9,7 @@ export default function Overview() {
             <Routes>
                 <Route path="/" element={<Products />}></Route>
                 <Route
-                    path="/productDetails"
+                    path="/productDetails/:id"
                     element={<ProductDetails />}
                 ></Route>
                 <Route path="/favorites" element={<Favorites />}></Route>
