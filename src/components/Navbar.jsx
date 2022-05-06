@@ -80,7 +80,7 @@ const Navbar = () => {
               <Badge badgeContent={17} color="error">
                 <ShoppingCartIcon />
               </Badge>
-
+              
             </IconButton>
           </Box>
         </Toolbar>
