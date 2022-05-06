@@ -42,11 +42,7 @@ const Products = () => {
 
     return (
         <>
-            {hasProducts ? (
-                <SearchBar onChange={onSearchChange} />
-            ) : (
-                loading && <h1>Loading...</h1>
-            )}
+            {hasProducts ? (<SearchBar onChange={onSearchChange} />) : (loading && <h1>Loading...</h1>)}
             <div className="cardContainer">
                 {data.filter(filterSearch).map(({id, image, title, price, category}) => (
                     <div key={id}className="productItem">
