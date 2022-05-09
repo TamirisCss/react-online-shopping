@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import Card from "../components/Card";
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -25,14 +26,12 @@ const ProductDetails = () => {
         <>
             {idData && (
                 <>
-                    <div className="imageContainer">
-                        <img src={idData.image} alt="#" className="imageProduct " />
-                    </div>
-                    <div className="card-info">
-                        <h6>{idData.title}</h6>
-                        <h6>{`Price: ${idData.price}`}</h6>
-                        <h6>{`Category: ${idData.category}`}</h6>
-                    </div>
+                    <Card
+                        image={idData.image}
+                        title={idData.title}
+                        price={idData.price}
+                        category={idData.category}
+                    />
                 </>
             )}
             {!idData && <h2>Loading...</h2>}
