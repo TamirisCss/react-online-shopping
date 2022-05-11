@@ -9,7 +9,12 @@ import Badge from "@mui/material/Badge";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
+import CartContext from "../CartContext";
+import { useContext } from "react";
+
 const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -41,7 +46,7 @@ const Navbar = () => {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
+              <Badge badgeContent={cartItems.length} color="error">
                 <Link to="/cart">
                   <ShoppingCartIcon />
                 </Link>
