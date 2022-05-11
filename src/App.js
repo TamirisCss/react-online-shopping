@@ -1,12 +1,15 @@
 import "./style.css/Products.css";
-import Overview from "./Overview"
+import { CartProvider } from "./CartContext";
+import Overview from "./Overview";
 
 const App = () => {
-    return (
-        <div className="App">
-           <Overview/>
-        </div>
-    );
+  return (
+    <div className="App">
+      <CartProvider>
+        <Overview />
+      </CartProvider>
+    </div>
+  );
 };
 
 export default App;
