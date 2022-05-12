@@ -1,20 +1,23 @@
 import React from "react";
-import "../style.css/Cart.css";
 import CartContext from "../CartContext";
 import { useContext } from "react";
+import Card from "./Card";
 
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
   return (
     <div>
-      {!cartItems ? (
+      {cartItems.length === 0 ? (
         <h1>your cart is empty</h1>
       ) : (
-        cartItems.map((item) => (
+        cartItems.map(({ title, image, price, category }) => (
           <div>
-            <img className="cart-image" src={item.image} alt={item.title} />
-            <p>{item.title}</p>
-            <p>${item.price}</p>
+            <Card
+              title={title}
+              image={image}
+              price={price}
+              category={category}
+            />
           </div>
         ))
       )}
