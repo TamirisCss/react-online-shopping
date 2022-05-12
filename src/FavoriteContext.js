@@ -5,8 +5,8 @@ const FavoriteContext = createContext();
 export function FavoriteProvide({ children }) {
   const [favoriteItems, setFavoriteItems] = useState([]);
 
-  const addFavorite = (image, title, price) => {
-    setFavoriteItems((prevState) => [...prevState, { image, title, price }]);
+  const addFavorite = (image, title, price, category) => {
+    setFavoriteItems((prevState) => [...prevState, { image, title, price, category }]);
   };
 
   return (

@@ -47,13 +47,13 @@ const Card = ({ id, image, price, title, category }) => {
     return (
         <div key={id} className="productItem">
             <div className="iconsContainer">
-                <IconButton onClick={() => addFavorite(image, title, price)} aria-label="add to favorites">
+                <IconButton onClick={() => addFavorite(image, title, price, category)} aria-label="add to favorites">
                     <FavoriteBorderIcon />
                 </IconButton>
 
                 <IconButton
                     aria-label="add to cart"
-                    onClick={() => addToCart(image, title, price)}
+                    onClick={() => addToCart(image, title, price, category)}
                 >
                     <AddShoppingCartIcon />
                 </IconButton>
