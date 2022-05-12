@@ -8,12 +8,13 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
+import FavoriteContext from '../FavoriteContext'
 import CartContext from "../CartContext";
 import { useContext } from "react";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
+  const { favoriteItems } = useContext(FavoriteContext);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -35,7 +36,7 @@ const Navbar = () => {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
+              <Badge badgeContent={favoriteItems.length} color="error">
                 <Link to="/favorites">
                   <StarIcon />
                 </Link>

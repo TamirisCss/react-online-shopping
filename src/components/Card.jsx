@@ -4,9 +4,9 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useState, useEffect } from "react";
-
 import { useContext } from "react";
 import CartContext from "../CartContext";
+import FavoriteContext from "../FavoriteContext"
 
 const Card = ({ id, image, price, title, category }) => {
     const card = { id, image, price, title, category };
@@ -14,6 +14,7 @@ const Card = ({ id, image, price, title, category }) => {
     //   //criar um novo array e set
 
     const { addToCart } = useContext(CartContext);
+    const { addFavorite } = useContext(FavoriteContext)
 
     useEffect(() => {
         // storing
@@ -28,25 +29,25 @@ const Card = ({ id, image, price, title, category }) => {
     }, []);
 
     //favorite nao pode ser usado para modificar, somente setFavorite
-    const addFavorite = () => {
-        for (let i = 0; i < favorite.length; i++) {
-            const item = favorite[i];
-            if (item.id === card.id) {
-                favorite.splice(i);
-                setFavorite(favorite);
-                console.log("tirei o item", card.id, favorite);
-                return;
-            }
-        }
-        const newFavorites = [...favorite, card];
-        setFavorite(newFavorites);
-        console.log("adicionei o item", card.id, newFavorites);
-    };
+    // const addFavorite = () => {
+    //     for (let i = 0; i < favorite.length; i++) {
+    //         const item = favorite[i];
+    //         if (item.id === card.id) {
+    //             favorite.splice(i);
+    //             setFavorite(favorite);
+    //             console.log("tirei o item", card.id, favorite);
+    //             return;
+    //         }
+    //     }
+    //     const newFavorites = [...favorite, card];
+    //     setFavorite(newFavorites);
+    //     console.log("adicionei o item", card.id, newFavorites);
+    // };
 
     return (
         <div key={id} className="productItem">
             <div className="iconsContainer">
-                <IconButton onClick={addFavorite} aria-label="add to favorites">
+                <IconButton onClick={() => addFavorite(image, title, price)} aria-label="add to favorites">
                     <FavoriteBorderIcon />
                 </IconButton>
 
