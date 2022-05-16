@@ -16,6 +16,8 @@ const Navbar = () => {
   const { cartItems } = useContext(CartContext);
   const { favoriteItems } = useContext(FavoriteContext);
 
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

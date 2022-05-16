@@ -9,29 +9,11 @@ import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext"
 
 const Card = ({ id, image, price, title, category }) => {
-  // const [favorite, setFavorite] = useState([]);
-  
-    //   //criar um novo array e set
+
 
     const { addToCart } = useContext(CartContext);
     const { addFavorite } = useContext(FavoriteContext)
 
-
-    //favorite nao pode ser usado para modificar, somente setFavorite
-    // const addFavorite = () => {
-    //     for (let i = 0; i < favorite.length; i++) {
-    //         const item = favorite[i];
-    //         if (item.id === card.id) {
-    //             favorite.splice(i);
-    //             setFavorite(favorite);
-    //             console.log("tirei o item", card.id, favorite);
-    //             return;
-    //         }
-    //     }
-    //     const newFavorites = [...favorite, card];
-    //     setFavorite(newFavorites);
-    //     console.log("adicionei o item", card.id, newFavorites);
-    // };
 
     return (
         <div key={id} className="productItem">
