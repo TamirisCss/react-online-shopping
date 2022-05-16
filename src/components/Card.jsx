@@ -9,24 +9,13 @@ import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext"
 
 const Card = ({ id, image, price, title, category }) => {
-    const card = { id, image, price, title, category };
-    const [favorite, setFavorite] = useState([]);
+  // const [favorite, setFavorite] = useState([]);
+  
     //   //criar um novo array e set
 
     const { addToCart } = useContext(CartContext);
     const { addFavorite } = useContext(FavoriteContext)
 
-    useEffect(() => {
-        // storing
-        localStorage.setItem("favorite", JSON.stringify(favorite));
-    }, [favorite]);
-
-    useEffect(() => {
-        const favorite = JSON.parse(localStorage.getItem("favorite"));
-        if (favorite) {
-            setFavorite(favorite);
-        }
-    }, []);
 
     //favorite nao pode ser usado para modificar, somente setFavorite
     // const addFavorite = () => {
@@ -47,7 +36,7 @@ const Card = ({ id, image, price, title, category }) => {
     return (
         <div key={id} className="productItem">
             <div className="iconsContainer">
-                <IconButton onClick={() => addFavorite(image, title, price, category)} aria-label="add to favorites">
+                <IconButton onClick={() => addFavorite( id, image, title, price, category)} aria-label="add to favorites">
                     <FavoriteBorderIcon />
                 </IconButton>
 
