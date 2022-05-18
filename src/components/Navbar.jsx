@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteContext from '../FavoriteContext'
+import FavoriteContext from "../FavoriteContext";
 import CartContext from "../CartContext";
 import { useContext } from "react";
 
@@ -16,11 +16,9 @@ const Navbar = () => {
   const { cartItems } = useContext(CartContext);
   const { favoriteItems } = useContext(FavoriteContext);
 
-
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <div className="nav-bar">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography
             variant="h6"
@@ -28,7 +26,7 @@ const Navbar = () => {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/">Online Shopping</Link>
+            <Link className="logo" to="/">Online Shopping</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
@@ -58,7 +56,7 @@ const Navbar = () => {
           </Box>
         </Toolbar>
       </AppBar>
-    </Box>
+    </div>
   );
 };
 

@@ -1,11 +1,13 @@
 import React from "react";
-
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = ({ onChange }) => {
     return (
-        <div>
+        <div className="search-input">
+            <div className="search-icon"><SearchIcon /></div>
             <input
-                className="outline w-96 h-10 fill-stone-500 font-bold text-teal-500"
+                placeholder="Search"
+                className="search"
                 type="text"
                 onChange={onChange}
             />
