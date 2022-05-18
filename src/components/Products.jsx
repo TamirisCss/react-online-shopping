@@ -1,4 +1,5 @@
 import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 
@@ -38,7 +39,7 @@ const Products = () => {
       {hasProducts ? (
         <SearchBar onChange={onSearchChange} />
       ) : (
-        loading && <h1>Loading...</h1>
+        loading && <h1><CircularProgress /></h1>
       )}
       <div className="cardContainer">
         {data
