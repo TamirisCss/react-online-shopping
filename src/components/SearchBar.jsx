@@ -1,17 +1,35 @@
 import React from "react";
-import SearchIcon from '@mui/icons-material/Search';
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { margin } from "@mui/system";
 
 const SearchBar = ({ onChange }) => {
-    return (
-        <div className="search-input">
-            <div className="search-icon"><SearchIcon /></div>
-            <input
-                placeholder="Search"
-                className="search"
-                type="text"
-                onChange={onChange}
-            />
-        </div>
-    );
+  return (
+    <div
+      className="search-input"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        margin: "3rem",
+        padding: "3rem",
+       
+      }}
+    >
+      <Box
+        sx={{
+          width: 500,
+          maxWidth: "100%",
+        }}
+      >
+        <TextField
+          fullWidth
+          label="FilterSearch"
+          id="Filter"
+          onChange={onChange}
+          color="primary"
+        />
+      </Box>
+    </div>
+  );
 };
 export default SearchBar;

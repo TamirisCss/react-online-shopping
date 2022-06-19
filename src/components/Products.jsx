@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import Card from "./Card";
 
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -17,8 +16,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -63,7 +60,10 @@ const Products = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
-          spacing={{ xs: 2, md: 3 }}
+          spacing={{
+            xs: 3,
+            md: 4,
+          }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {data
