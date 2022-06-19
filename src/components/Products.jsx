@@ -1,9 +1,24 @@
+import React from "react";
+import { experimentalStyled as styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
-
 import Card from "./Card";
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
+
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -39,21 +54,33 @@ const Products = () => {
       {hasProducts ? (
         <SearchBar onChange={onSearchChange} />
       ) : (
-        loading && <h1><CircularProgress /></h1>
+        loading && (
+          <h1>
+            <CircularProgress />
+          </h1>
+        )
       )}
-      <div className="cardContainer">
-        {data
-          .filter(filterSearch)
-          .map(({ id, image, title, price, category }) => (
-            <Card
-              id={id}
-              image={image}
-              title={title}
-              price={price}
-              category={category}
-            />
-          ))}
-      </div>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {data
+            .filter(filterSearch)
+            .map(({ id, image, title, price, category }) => (
+              <Grid item xs={2} sm={4} md={4}>
+                <Card
+                  id={id}
+                  image={image}
+                  title={title}
+                  price={price}
+                  category={category}
+                />
+              </Grid>
+            ))}
+        </Grid>
+      </Box>
     </>
   );
 };
