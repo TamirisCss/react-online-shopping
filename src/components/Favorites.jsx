@@ -2,7 +2,6 @@ import React from "react";
 import FavoriteContext from "../FavoriteContext";
 import { useContext } from "react";
 import Card from './Card'
-
 import emptyFav from "../images/empty-fav-img.png";
 
 
