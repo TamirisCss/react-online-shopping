@@ -57,7 +57,7 @@ const Products = () => {
           </h1>
         )
       )}
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, minHeight: "100vh" }}>
         <Grid
           container
           spacing={{
