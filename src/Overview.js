@@ -4,6 +4,7 @@ import ProductDetails from "./components/ProductDetails";
 import Favorites from "./components/Favorites";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function Overview() {
     return (
@@ -19,6 +20,7 @@ export default function Overview() {
                     <Route path="/favorites" element={<Favorites />}></Route>
                     <Route path="/cart" element={<Cart />}></Route>
                 </Routes>
+                <Footer />
             </Router>
         </>
     );
