@@ -28,6 +28,7 @@ const Cart = () => {
           cartItems.map(({ id, title, image, price, category, quantity }) => (
             <div key={id} className="smallCard">
               <Card
+                id={id}
                 title={title}
                 image={image}
                 price={price}
