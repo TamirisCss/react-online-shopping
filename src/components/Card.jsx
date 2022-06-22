@@ -9,7 +9,7 @@ import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const Card = ({ id, image, price, title, category }) => {
+const Card = ({ id, image, price, title, category, quantity }) => {
   const { addToCart } = useContext(CartContext);
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
 
@@ -31,7 +31,7 @@ const Card = ({ id, image, price, title, category }) => {
 
         <IconButton
           aria-label="add to cart"
-          onClick={() => addToCart(image, title, price, category)}
+          onClick={() => addToCart(id, image, title, price, category)}
         >
           <AddShoppingCartIcon />
         </IconButton>
@@ -43,6 +43,7 @@ const Card = ({ id, image, price, title, category }) => {
         <h6>{title}</h6>
         <h6>{`Price: ${price}`}</h6>
         <h6>{`Category: ${category}`}</h6>
+        <h6>{`Quantity: ${quantity}`}</h6>
       </div>
       <Link to={`/productDetails/${id}`}>
         <Button size="small">More details</Button>
