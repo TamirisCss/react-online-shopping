@@ -7,16 +7,48 @@ export function CartProvider({ children }) {
   const [quantityItems, setQuantityItems] = useState(0);
 
   const addToCart = (id, image, title, price, category) => {
-    setQuantityItems(quantityItems + 1);
+    if (cartItems.some((item) => item.id === id)) {
+      increaseQuantity(id);
+    } else {
+      setCartItems((prevState) => [
+        ...prevState,
+        { id, image, title, price, category, quantity: 1 },
+      ]);
+    }
+  };
 
-    setCartItems((prevState) => [
-      ...prevState,
-      { id, image, title, price, category },
-    ]);
+  const increaseQuantity = (id) => {
+    const itemIndex = cartItems.findIndex((item) => item.id === id);
+    cartItems[itemIndex].quantity = cartItems[itemIndex].quantity + 1;
+    setCartItems(cartItems);
+  };
+
+  const decreaseQuantity = (id) => {
+    const itemIndex = cartItems.findIndex((item) => item.id === id);
+    if (cartItems[itemIndex].quantity > 1) {
+      cartItems[itemIndex].quantity = cartItems[itemIndex].quantity - 1;
+      setCartItems(cartItems);
+    } else {
+      removeItem(id);
+    }
+  };
+
+  const removeItem = (id) => {
+    const itemIndex = cartItems.findIndex((item) => item.id === id);
+    cartItems.splice(itemIndex, 1);
+    setCartItems(cartItems);
   };
 
   return (
-    <CartContext.Provider value={{ quantityItems, cartItems, addToCart }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        increaseQuantity,
+        decreaseQuantity,
+        removeItem,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

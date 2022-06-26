@@ -8,8 +8,10 @@ import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const Card = ({ id, image, price, title, category }) => {
-  const { addToCart } = useContext(CartContext);
+const Card = ({ id, image, price, title, category, quantity }) => {
+  const { addToCart, increaseQuantity, decreaseQuantity, removeItem } =
+    useContext(CartContext);
+
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
 
   const isCardInFavouriteItems = () => {
@@ -18,37 +20,41 @@ const Card = ({ id, image, price, title, category }) => {
   };
 
   return (
-    <div key={id} className="productItem">
-      <div className="iconsContainer">
-        <IconButton
-          color="primary"
-          onClick={() => addFavorite(id, image, title, price, category)}
-          aria-label="add to favorites"
-        >
-          {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
-        </IconButton>
+    <>
+      <div key={id} className="productItem">
+        <div className="iconsContainer">
+          <IconButton
+            color="primary"
+            onClick={() => addFavorite(id, image, title, price, category)}
+            aria-label="add to favorites"
+          >
+            {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
+          </IconButton>
 
-        <IconButton
-          aria-label="add to cart"
-          onClick={() =>
-            addToCart(id,image, title, price, category)
-          }
-        >
-          <AddShoppingCartIcon />
-        </IconButton>
+          <IconButton
+            aria-label="add to cart"
+            onClick={() => addToCart(id, image, title, price, category)}
+          >
+            <AddShoppingCartIcon />
+          </IconButton>
+        </div>
+        <div className="imageContainer">
+          <img src={image} alt="#" className="imageProduct " />
+        </div>
+        <div className="card-info">
+          <h6>{title}</h6>
+          <h6>{`Price: ${price}`}</h6>
+          <h6>{`Category: ${category}`}</h6>
+          <h6>{`Quantity: ${quantity}`}</h6>
+        </div>
+        <Link to={`/productDetails/${id}`}>
+          <Button size="small">More details</Button>
+        </Link>
+        <button onClick={() => decreaseQuantity(id)}>-</button>
+        <button onClick={() => increaseQuantity(id)}>+</button>
+        <button onClick={() => removeItem(id)}>Remove</button>
       </div>
-      <div className="imageContainer">
-        <img src={image} alt="#" className="imageProduct " />
-      </div>
-      <div className="card-info">
-        <h6>{title}</h6>
-        <h6>{`Price: ${price}`}</h6>
-        <h6>{`Category: ${category}`}</h6>
-      </div>
-      <Link to={`/productDetails/${id}`}>
-        <Button size="small">More details</Button>
-      </Link>
-    </div>
+    </>
   );
 };
 
