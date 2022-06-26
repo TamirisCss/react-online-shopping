@@ -9,8 +9,7 @@ import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Card = ({ id, image, price, title, category, quantity }) => {
-  const { addToCart, increaseQuantity, decreaseQuantity, removeItem } =
-    useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
 
@@ -50,9 +49,6 @@ const Card = ({ id, image, price, title, category, quantity }) => {
         <Link to={`/productDetails/${id}`}>
           <Button size="small">More details</Button>
         </Link>
-        <button onClick={() => decreaseQuantity(id)}>-</button>
-        <button onClick={() => increaseQuantity(id)}>+</button>
-        <button onClick={() => removeItem(id)}>Remove</button>
       </div>
     </>
   );

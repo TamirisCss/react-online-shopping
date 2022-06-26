@@ -1,16 +1,30 @@
 import React from "react";
 import CartContext from "../CartContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import Card from "./Card";
-
 import Box from "@mui/material/Box";
-
-import { useCart } from "react-use-cart";
 
 import emptyCart from "../images/empty-cart-img.jpeg";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const [quantityItems, setQuantityItems] = useState(0);
+  const [priceItem, setPriceItem] = useState(0);
+  const { cartItems, removeItem } = useContext(CartContext);
+
+  const filterPrice = () => {
+    const sum =  cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
+    setPriceItem(sum);
+  };
+  const increase = () => {
+    setQuantityItems(cartItems.length);
+  };
+
+  useEffect(() => {
+    filterPrice();
+    increase();
+
+    return () => {};
+  }, [cartItems]);// toda vez que o cart item mudar 
 
   return (
     <div>
@@ -35,9 +49,12 @@ const Cart = () => {
                 category={category}
                 quantity={quantity}
               />
+              <button onClick={() => removeItem(id)}>Remove</button>
             </div>
           ))
         )}
+        <h1>{quantityItems}</h1>
+        <h1>{priceItem}</h1>
       </Box>
     </div>
   );
