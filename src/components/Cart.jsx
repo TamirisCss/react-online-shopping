@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import Card from "./Card";
 import Box from "@mui/material/Box";
 
+
 import emptyCart from "../images/empty-cart-img.jpeg";
 
 const Cart = () => {
@@ -53,8 +54,9 @@ const Cart = () => {
             </div>
           ))
         )}
-        <h1>{quantityItems}</h1>
-        <h1>{priceItem}</h1>
+
+        <h1>{cartItems.length > 0 && `Quantity: ${quantityItems}`}</h1>
+        <h1>{cartItems.length > 0 && `Total: ${priceItem}`}</h1>
       </Box>
     </div>
   );
