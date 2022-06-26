@@ -3,7 +3,7 @@ import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
 import Card from "./Card";
 import Box from "@mui/material/Box";
-
+import CardContent from "@mui/material/CardContent";
 
 import emptyCart from "../images/empty-cart-img.jpeg";
 
@@ -13,7 +13,7 @@ const Cart = () => {
   const { cartItems, removeItem } = useContext(CartContext);
 
   const filterPrice = () => {
-    const sum =  cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
+    const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
     setPriceItem(sum);
   };
   const increase = () => {
@@ -25,13 +25,16 @@ const Cart = () => {
     increase();
 
     return () => {};
-  }, [cartItems]);// toda vez que o cart item mudar 
+  }, [cartItems]); // toda vez que o cart item mudar
 
   return (
     <div>
       <Box
         sx={{
           minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
         {cartItems.length === 0 ? (
@@ -54,10 +57,33 @@ const Cart = () => {
             </div>
           ))
         )}
-
-        <h1>{cartItems.length > 0 && `Quantity: ${quantityItems}`}</h1>
-        <h1>{cartItems.length > 0 && `Total: ${priceItem}`}</h1>
       </Box>
+      {cartItems.length > 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: "30px",
+          }}
+        >
+          <Box
+            sx={{
+              paddingTop: "50px",
+              height: "20rem",
+              width: "30rem",
+              backgroundColor: "primary.dark",
+              "&:hover": {
+                backgroundColor: "primary.main",
+                opacity: [0.9, 0.8, 0.7],
+              },
+            }}
+          >
+            <h1>{`Quantity: ${quantityItems}`}</h1>
+            <h1>{`Total: ${priceItem}`}</h1>
+          </Box>
+        </div>
+      )}
     </div>
   );
 };
