@@ -2,11 +2,14 @@ import React from "react";
 import CartContext from "../CartContext";
 import { useContext } from "react";
 import Card from "./Card";
-
-import emptyCart from "../images/empty-cart-img.jpeg"
+import emptyCart from "../images/empty-cart-img.jpeg";
 
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
+  const { quantityItems } = useContext(CartContext);
+
+
+
   return (
     <div>
       {cartItems.length === 0 ? (
@@ -15,9 +18,10 @@ const Cart = () => {
           <img src={emptyCart} alt="cart empty" />
         </div>
       ) : (
-        cartItems.map(({ title, image, price, category }) => (
+        cartItems.map(({ id, title, image, price, category }) => (
           <div>
             <Card
+              id={id}
               title={title}
               image={image}
               price={price}
@@ -26,6 +30,7 @@ const Cart = () => {
           </div>
         ))
       )}
+      <h1>{quantityItems}</h1>
     </div>
   );
 };

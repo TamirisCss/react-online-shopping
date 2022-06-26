@@ -3,7 +3,6 @@ import { Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Favorite from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useState, useEffect } from "react";
 import { useContext } from "react";
 import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext";
@@ -31,7 +30,9 @@ const Card = ({ id, image, price, title, category }) => {
 
         <IconButton
           aria-label="add to cart"
-          onClick={() => addToCart(image, title, price, category)}
+          onClick={() =>
+            addToCart(id,image, title, price, category)
+          }
         >
           <AddShoppingCartIcon />
         </IconButton>

@@ -14,7 +14,7 @@ export function FavoriteProvide({ children }) {
       //predicate pesquisa
       const index = favoriteItems.findIndex(element => element.id === id)
       console.log(index)
-      newArray.splice(index, 1)
+      newArray.splice(index,1)
     }
     console.log(newArray)
     setFavoriteItems(newArray)
