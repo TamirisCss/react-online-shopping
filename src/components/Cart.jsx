@@ -3,8 +3,6 @@ import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
 import Card from "./Card";
 import Box from "@mui/material/Box";
-import CardContent from "@mui/material/CardContent";
-
 import emptyCart from "../images/empty-cart-img.jpeg";
 
 const Cart = () => {
@@ -19,6 +17,10 @@ const Cart = () => {
   const increase = () => {
     setQuantityItems(cartItems.length);
   };
+
+  const duplicateItem = () => {
+
+  }
 
   useEffect(() => {
     filterPrice();
@@ -43,9 +45,10 @@ const Cart = () => {
             <img src={emptyCart} alt="cart empty" />
           </div>
         ) : (
-          cartItems.map(({ id, title, image, price, category, quantity }) => (
+          cartItems.map(({ id, title, image, price, category, quantity },index) => (
             <div key={id} className="smallCard">
               <Card
+                index={index}
                 id={id}
                 title={title}
                 image={image}
@@ -53,7 +56,7 @@ const Cart = () => {
                 category={category}
                 quantity={quantity}
               />
-              <button onClick={() => removeItem(id)}>Remove</button>
+              <button onClick={() => removeItem(index)}>Remove</button>
             </div>
           ))
         )}
@@ -80,7 +83,7 @@ const Cart = () => {
             }}
           >
             <h1>{`Quantity: ${quantityItems}`}</h1>
-            <h1>{`Total: ${priceItem}`}</h1>
+            <h1>{`Total price: ${priceItem}`}</h1>
           </Box>
         </div>
       )}

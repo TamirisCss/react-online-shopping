@@ -5,20 +5,17 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-
   const addToCart = (id, image, title, price, category) => {
-
     setCartItems((prevState) => [
       ...prevState,
       { id, image, title, price, category },
     ]);
-
   };
 
-  const removeItem = (id) => {
-    const itemIndex = cartItems.findIndex((item) => item.id === id);
-    cartItems.splice(itemIndex, 1);
-    setCartItems(cartItems);
+  const removeItem = (index) => {
+    const cartItem = [...cartItems];
+    cartItem.splice(index, 1);
+    setCartItems(cartItem);
   };
 
   return (
@@ -26,7 +23,7 @@ export function CartProvider({ children }) {
       value={{
         cartItems,
         addToCart,
-        removeItem
+        removeItem,
       }}
     >
       {children}
