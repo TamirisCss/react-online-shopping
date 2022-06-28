@@ -21,5 +21,8 @@ Users should be able to:
 - Check the total sum of the products in the cart
 
 
+### Authors
 
+https://github.com/arianecrestani
 
+https://github.com/TamirisCss
