@@ -1,9 +1,11 @@
 import React from "react";
 import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
-import Card from "./Card";
+import Product from "./Product";
 import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+
 
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);
@@ -18,9 +20,7 @@ const Cart = () => {
     setQuantityItems(cartItems.length);
   };
 
-  const duplicateItem = () => {
-
-  }
+  const duplicateItem = () => {};
 
   useEffect(() => {
     filterPrice();
@@ -31,58 +31,56 @@ const Cart = () => {
 
   return (
     <div>
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        {cartItems.length === 0 ? (
-          <div>
-            <h2>Your basket is empty</h2>
-            <img src={emptyCart} alt="cart empty" />
+      {cartItems.length === 0 ? (
+        <div>
+          <h2>Your basket is empty</h2>
+          <img src={emptyCart} alt="cart empty" />
+        </div>
+      ) : (
+        cartItems.map(({ id, title, image, price, category }, index) => (
+          <div key={id} className="smallCard">
+            <DeleteOutlinedIcon
+              sx={{ color: "primary.main" }}
+              onClick={() => removeItem(index)}
+            >
+              Remove
+            </DeleteOutlinedIcon>
+            <Product
+              index={index}
+              id={id}
+              title={title}
+              image={image}
+              price={price}
+              category={category}
+            />
           </div>
-        ) : (
-          cartItems.map(({ id, title, image, price, category, quantity },index) => (
-            <div key={id} className="smallCard">
-              <Card
-                index={index}
-                id={id}
-                title={title}
-                image={image}
-                price={price}
-                category={category}
-                quantity={quantity}
-              />
-              <button onClick={() => removeItem(index)}>Remove</button>
-            </div>
-          ))
-        )}
-      </Box>
+        ))
+      )}
+
       {cartItems.length > 0 && (
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "30px",
+            display: "inline-block",
+            flexDirection: "wrap",
+            padding: "20px",
+            backgroundColor: "#cfe8fc",
+            borderRadius: "10px",
           }}
         >
           <Box
             sx={{
-              paddingTop: "50px",
+              paddingTop: "80px",
               height: "20rem",
-              width: "30rem",
-              backgroundColor: "primary.dark",
+              width: "50rem",
+              borderRadius: "10px",
+              backgroundColor: "#f0efef",
               "&:hover": {
                 backgroundColor: "primary.main",
                 opacity: [0.9, 0.8, 0.7],
               },
             }}
           >
-            <h1>{`Quantity: ${quantityItems}`}</h1>
+            <h1>{`Total items: ${quantityItems}`}</h1>
             <h1>{`Total price: ${priceItem}`}</h1>
           </Box>
         </div>

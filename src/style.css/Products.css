@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .imageContainer {
@@ -13,9 +14,9 @@
 }
 
 
-.iconsContainer {
+/* .iconsContainer {
   align-self: flex-end;
-}
+} */
 
 /*navbar*/
 .nav-bar {

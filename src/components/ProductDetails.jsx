@@ -1,10 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Card from "../components/Card";
-import { styled } from "@mui/material/styles";
+import Product from "./Product";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
 
@@ -33,7 +31,7 @@ const ProductDetails = () => {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               <Grid style={{ padding: "6rem" }} item xs={10} md={12}>
-                <Card
+                <Product
                   image={idData.image}
                   title={idData.title}
                   price={idData.price}

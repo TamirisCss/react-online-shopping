@@ -12,13 +12,13 @@ const SearchBar = ({ onChange }) => {
         justifyContent: "center",
         margin: "3rem",
         padding: "3rem",
-       
       }}
     >
       <Box
         sx={{
           width: 500,
           maxWidth: "100%",
+          color: "primary.main",
         }}
       >
         <TextField

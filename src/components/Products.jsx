@@ -7,7 +7,8 @@ import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
-import Card from "./Card";
+import Product from "./Product";
+
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -61,7 +62,7 @@ const Products = () => {
             .filter(filterSearch)
             .map(({ id, image, title, price, category }) => (
               <Grid item xs={2} sm={4} md={4}>
-                <Card
+                <Product
                   id={id}
                   image={image}
                   title={title}
