@@ -10,9 +10,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 const Product = ({ id, image, price, title, category }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, trashIcon } = useContext(CartContext);
 
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
 
@@ -51,6 +52,7 @@ const Product = ({ id, image, price, title, category }) => {
                 >
                   <AddShoppingCartIcon />
                 </IconButton>
+                <IconButton>{trashIcon}</IconButton>
               </div>
 
               <div className="imageContainer">
