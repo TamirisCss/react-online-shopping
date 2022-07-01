@@ -6,17 +6,12 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [trashIcon, setTrashIcon] = useState(false);
 
   const addToCart = (id, image, title, price, category) => {
     setCartItems((prevState) => [
       ...prevState,
       { id, image, title, price, category },
     ]);
-
-    setTrashIcon(() => {
-      return <DeleteOutlinedIcon />;
-    });
   };
 
   const removeItem = (index) => {
@@ -29,7 +24,6 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cartItems,
-        trashIcon,
         addToCart,
         removeItem,
       }}

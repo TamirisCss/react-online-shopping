@@ -6,11 +6,10 @@ import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
-
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);
   const [priceItem, setPriceItem] = useState(0);
-  const { cartItems, removeItem } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
 
   const filterPrice = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
@@ -19,8 +18,6 @@ const Cart = () => {
   const increase = () => {
     setQuantityItems(cartItems.length);
   };
-
-  const duplicateItem = () => {};
 
   useEffect(() => {
     filterPrice();
@@ -39,12 +36,6 @@ const Cart = () => {
       ) : (
         cartItems.map(({ id, title, image, price, category }, index) => (
           <div key={id} className="smallCard">
-            <DeleteOutlinedIcon
-              sx={{ color: "primary.main" }}
-              onClick={() => removeItem(index)}
-            >
-              Remove
-            </DeleteOutlinedIcon>
             <Product
               index={index}
               id={id}
@@ -52,6 +43,7 @@ const Cart = () => {
               image={image}
               price={price}
               category={category}
+              showTrash={true}
             />
           </div>
         ))

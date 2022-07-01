@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import Product from "./Product";
 
-
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
