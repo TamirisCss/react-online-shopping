@@ -3,6 +3,8 @@ body {
   font: optional;
   font-size: 25px;
   align-items: baseline;
+  position: relative;
+  min-height: 100vh;
 }
 
 code {

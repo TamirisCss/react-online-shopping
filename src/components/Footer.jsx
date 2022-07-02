@@ -5,23 +5,31 @@ import Stack from "@mui/material/Stack";
 
 import ariAvatar from "../images/ari-avatar.jpeg";
 import tamiAvatar from "../images/tami-avatar.jpg";
+import { height } from "@mui/system";
 
 const Footer = () => {
   return (
-    <div>
+    <div >
       <Box
         sx={{
+          display: 'flex',
+          justifyContent:'center',
           bgcolor: "#651fff",
-          height: "20vh",
           width: "100%",
-          marginTop: "1rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          position: "absolute",
+          bottom: "0",
+
+          width: "100%",
+          height: 'auto',
+         
         }}
       >
-        <Stack direction="row" spacing={10}>
-          <Avatar alt="Ariane Cretani" src={ariAvatar} />
+        <Stack
+        
+          direction="row"
+          spacing={10}
+        >
+          <Avatar  alt="Ariane Cretani" src={ariAvatar} />
           <Avatar alt="Ariane Cretani" src={tamiAvatar} />
         </Stack>
       </Box>

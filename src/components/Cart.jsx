@@ -23,7 +23,6 @@ const Cart = () => {
   useEffect(() => {
     filterPrice();
     increase();
-   
 
     return () => {};
   }, [cartItems]); // toda vez que o cart item mudar
@@ -37,7 +36,7 @@ const Cart = () => {
         </div>
       ) : (
         cartItems.map(({ id, title, image, price, category }, index) => (
-          <div style={{ padding: "2rem" }} key={id} className="smallCard">
+          <div style={{ padding: "6rem" }} key={id} className="smallCard">
             <Product
               index={index}
               id={id}
@@ -52,32 +51,33 @@ const Cart = () => {
       )}
 
       {cartItems.length > 0 && (
-        <div
-          style={{
-            display: "inline-block",
-            flexDirection: "wrap",
-            padding: "20px",
-            backgroundColor: "#651fff",
-
-            borderRadius: "10px",
-          }}
-        >
-          <Box
-            sx={{
-              paddingTop: "80px",
-              height: "20rem",
-              width: "50rem",
+        <div style={{}}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "20px",
+              backgroundColor: "#651fff",
+              marginBottom:'6rem',
               borderRadius: "10px",
-              backgroundColor: "#b388ff",
-              "&:hover": {
-                backgroundColor: "primary.main",
-                opacity: [0.9, 0.8, 0.7],
-              },
             }}
           >
-            <h1>{`Total items: ${quantityItems}`}</h1>
-            <h1>{`Total price: ${priceItem}`}</h1>
-          </Box>
+            <Box
+              sx={{
+                padding: "80px",
+                height: "20rem",
+                width: "50rem",
+                borderRadius: "10px",
+                backgroundColor: "#b388ff",
+                "&:hover": {
+                  backgroundColor: "primary.main",
+                  opacity: [0.9, 0.8, 0.7],
+                },
+              }}
+            >
+              <h1>{`Total items: ${quantityItems}`}</h1>
+              <h1>{`Total price: $${priceItem}`}</h1>
+            </Box>
+          </div>
         </div>
       )}
     </div>

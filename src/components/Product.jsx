@@ -79,7 +79,7 @@ const Product = (
               </div>
 
               <h6>{title}</h6>
-              <h6>{`Price: ${price}`}</h6>
+              <h6>{`Price: $${price}`}</h6>
               <h6>{`Category: ${category}`}</h6>
             </div>
             <Link to={`/productDetails/${id}`}>
