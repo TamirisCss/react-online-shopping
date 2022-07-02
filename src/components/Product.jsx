@@ -32,12 +32,19 @@ const Product = (
           padding: "4rem",
         }}
       >
-        <Card sx={{ alignContent: "baseline", width: "100%", height: "100%" }}>
+        <Card
+          sx={{
+            alignContent: "baseline",
+            width: "100%",
+            height: "100%",
+            color: "#263238",
+          }}
+        >
           <CardContent>
             <div key={id} className="">
               <div className="iconsContainer">
                 <IconButton
-                  color="primary"
+                  style={{ color: "#6200ea" }}
                   onClick={() => addFavorite(id, image, title, price, category)}
                   aria-label="add to favorites"
                 >
@@ -49,7 +56,7 @@ const Product = (
                 </IconButton>
 
                 <IconButton
-                  sx={{ color: "primary.main" }}
+                  style={{ color: "#6200ea" }}
                   aria-label="add to cart"
                   onClick={() => addToCart(id, image, title, price, category)}
                 >
@@ -58,7 +65,7 @@ const Product = (
                 <IconButton>
                   {showTrash && (
                     <DeleteOutlinedIcon
-                      sx={{ color: "primary.main" }}
+                      style={{ color: "#6200ea" }}
                       onClick={() => removeItem(index)}
                     >
                       Remove
@@ -76,7 +83,9 @@ const Product = (
               <h6>{`Category: ${category}`}</h6>
             </div>
             <Link to={`/productDetails/${id}`}>
-              <Button size="small">More details</Button>
+              <Button style={{ color: "#651fff" }} size="small">
+                More details
+              </Button>
             </Link>
           </CardContent>
         </Card>

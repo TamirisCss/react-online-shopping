@@ -15,6 +15,7 @@ const Cart = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
     setPriceItem(sum);
   };
+
   const increase = () => {
     setQuantityItems(cartItems.length);
   };
@@ -22,6 +23,7 @@ const Cart = () => {
   useEffect(() => {
     filterPrice();
     increase();
+   
 
     return () => {};
   }, [cartItems]); // toda vez que o cart item mudar
@@ -35,7 +37,7 @@ const Cart = () => {
         </div>
       ) : (
         cartItems.map(({ id, title, image, price, category }, index) => (
-          <div key={id} className="smallCard">
+          <div style={{ padding: "2rem" }} key={id} className="smallCard">
             <Product
               index={index}
               id={id}
@@ -55,7 +57,8 @@ const Cart = () => {
             display: "inline-block",
             flexDirection: "wrap",
             padding: "20px",
-            backgroundColor: "#cfe8fc",
+            backgroundColor: "#651fff",
+
             borderRadius: "10px",
           }}
         >
@@ -65,7 +68,7 @@ const Cart = () => {
               height: "20rem",
               width: "50rem",
               borderRadius: "10px",
-              backgroundColor: "#f0efef",
+              backgroundColor: "#b388ff",
               "&:hover": {
                 backgroundColor: "primary.main",
                 opacity: [0.9, 0.8, 0.7],

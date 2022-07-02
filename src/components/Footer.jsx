@@ -11,16 +11,15 @@ const Footer = () => {
     <div>
       <Box
         sx={{
-          bgcolor: "#cfe8fc",
+          bgcolor: "#651fff",
           height: "20vh",
           width: "100%",
-          marginTop: "2rem",
+          marginTop: "1rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        
         <Stack direction="row" spacing={10}>
           <Avatar alt="Ariane Cretani" src={ariAvatar} />
           <Avatar alt="Ariane Cretani" src={tamiAvatar} />

@@ -12,21 +12,27 @@ const SearchBar = ({ onChange }) => {
         justifyContent: "center",
         margin: "3rem",
         padding: "3rem",
+        borderColor: "#651fff",
+        borderRadius: "10px",
       }}
     >
       <Box
         sx={{
           width: 500,
           maxWidth: "100%",
-          color: "primary.main",
+          color: "#651fff",
+          borderRadius: "50px",
+          borderColor: "#651fff",
         }}
       >
         <TextField
+          style={{ color: "#651fff" }}
           fullWidth
           label="FilterSearch"
           id="Filter"
           onChange={onChange}
-          color="primary"
+          borderRadius="10px"
+  
         />
       </Box>
     </div>

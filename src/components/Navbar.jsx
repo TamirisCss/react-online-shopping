@@ -11,6 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteContext from "../FavoriteContext";
 import CartContext from "../CartContext";
 import { useContext } from "react";
+import { color } from "@mui/system";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
@@ -18,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar">
-      <AppBar position="fixed">
+      <AppBar style={{ background: "#651fff" }} position="fixed">
         <Toolbar>
           <Typography
             variant="h6"
@@ -26,19 +27,27 @@ const Navbar = () => {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <Link className="logo" to="/">Online Shopping</Link>
+            <Link style={{ color: "#b388ff" }} className="logo" to="/">
+              Online Shopping
+            </Link>
           </Typography>
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box style={{ flexGrow: 1, color: "#b388ff" }} />
+          <Box
+            style={{ color: "#b388ff" }}
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
             <IconButton
+              style={{ color: "#b388ff" }}
               size="large"
               aria-label="show 4 new mails"
-              color="inherit"
             >
-              <Badge badgeContent={favoriteItems.length} color="error">
+              <Badge
+                badgeContent={favoriteItems.length}
+                style={{ color: "#b388ff" }}
+              >
                 <Link to="/favorites">
-                  <StarIcon />
+                  <StarIcon style={{ color: "#b388ff" }} />
                 </Link>
               </Badge>
             </IconButton>
@@ -46,10 +55,14 @@ const Navbar = () => {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              style={{ color: "#b388ff" }}
             >
-              <Badge badgeContent={cartItems.length} color="error">
+              <Badge
+                badgeContent={cartItems.length}
+                style={{ color: "#b388ff" }}
+              >
                 <Link to="/cart">
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon style={{ color: "#b388ff" }} />
                 </Link>
               </Badge>
             </IconButton>
