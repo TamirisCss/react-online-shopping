@@ -38,6 +38,7 @@ const Product = (
             width: "100%",
             height: "100%",
             color: "#263238",
+        
           }}
         >
           <CardContent>
@@ -75,7 +76,12 @@ const Product = (
               </div>
 
               <div className="imageContainer">
-                <img src={image} alt="#" className="imageProduct " />
+                <img
+                 
+                  src={image}
+                  alt="#"
+                  className="imageProduct "
+                />
               </div>
 
               <h6>{title}</h6>

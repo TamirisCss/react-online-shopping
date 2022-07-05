@@ -1,11 +1,10 @@
-import { createContext, useState } from "react";
-
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { createContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const storage = JSON.parse(localStorage.getItem("cartItems"));
+  const [cartItems, setCartItems] = useState(storage ?? []);
 
   const addToCart = (id, image, title, price, category) => {
     setCartItems((prevState) => [
@@ -18,7 +17,12 @@ export function CartProvider({ children }) {
     const cartItem = [...cartItems];
     cartItem.splice(index, 1);
     setCartItems(cartItem);
-  };
+  }
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    console.log(localStorage.getItem("cartItems"));
+  }, [cartItems.length]);
 
   return (
     <CartContext.Provider

@@ -21,8 +21,9 @@ const SearchBar = ({ onChange }) => {
           width: 500,
           maxWidth: "100%",
           color: "#651fff",
-          borderRadius: "50px",
+      
           borderColor: "#651fff",
+          background: "#F8F8FF",
         }}
       >
         <TextField
@@ -32,7 +33,6 @@ const SearchBar = ({ onChange }) => {
           id="Filter"
           onChange={onChange}
           borderRadius="10px"
-  
         />
       </Box>
     </div>

@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const FavoriteContext = createContext([]);
 
 export function FavoriteProvide({ children }) {
-  const [favoriteItems, setFavoriteItems] = useState([]);
+  const storage = JSON.parse(localStorage.getItem("favoriteItems"));
+  const [favoriteItems, setFavoriteItems] = useState(storage || []);
 
   const addFavorite = (id, image, title, price, category) => {
     let newArray = [... favoriteItems]
@@ -19,6 +20,10 @@ export function FavoriteProvide({ children }) {
     console.log(newArray)
     setFavoriteItems(newArray)
   };
+    useEffect(() => {
+      localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
+      console.log(localStorage.getItem("favoriteItems"));
+    }, [favoriteItems.length]);
  
   return (
     <FavoriteContext.Provider value={{favoriteItems, addFavorite }}>

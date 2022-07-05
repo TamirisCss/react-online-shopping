@@ -19,7 +19,11 @@ const Products = () => {
   };
 
   const filterSearch = (product) => {
-    return product.title.toLowerCase().includes(searchValue);
+    return (
+      product.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+      product.category.toLowerCase().includes(searchValue.toLocaleLowerCase())
+    );
+
   };
 
   useEffect(() => {
