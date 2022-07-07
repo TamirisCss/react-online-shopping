@@ -4,10 +4,10 @@ import { useContext, useState, useEffect } from "react";
 import Product from "./Product";
 import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);
+  const [groupItems, setGroupItems] = useState([]);
   const [priceItem, setPriceItem] = useState(0);
   const { cartItems } = useContext(CartContext);
 
@@ -15,6 +15,15 @@ const Cart = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
     setPriceItem(sum);
   };
+
+  const arrayUnique = [
+    ...new Map(cartItems.map((item) => [item.id, item])).values(),
+  ];
+  arrayUnique.forEach((element) => {
+    const newArrray = cartItems.filter((item) => item.id === element.id);
+    element.quantity = newArrray.length;
+  });
+  setGroupItems(arrayUnique);
 
   const increase = () => {
     setQuantityItems(cartItems.length);
@@ -35,19 +44,22 @@ const Cart = () => {
           <img src={emptyCart} alt="cart empty" />
         </div>
       ) : (
-        cartItems.map(({ id, title, image, price, category }, index) => (
-          <div style={{ padding: "6rem" }} key={id} className="smallCard">
-            <Product
-              index={index}
-              id={id}
-              title={title}
-              image={image}
-              price={price}
-              category={category}
-              showTrash={true}
-            />
-          </div>
-        ))
+        groupItems.map(
+          ({ id, title, image, price, category, quantity}, index) => (
+            <div style={{ padding: "6rem" }} key={id} className="smallCard">
+              <Product
+                index={index}
+                id={id}
+                title={title}
+                image={image}
+                price={price}
+                category={category}
+                showTrash={true}
+                quantity={quantity}
+              />
+            </div>
+          )
+        )
       )}
 
       {cartItems.length > 0 && (
@@ -57,7 +69,7 @@ const Cart = () => {
               display: "inline-block",
               padding: "20px",
               backgroundColor: "#651fff",
-              marginBottom:'6rem',
+              marginBottom: "6rem",
               borderRadius: "10px",
             }}
           >

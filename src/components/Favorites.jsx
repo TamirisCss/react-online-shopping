@@ -18,6 +18,7 @@ const Favorites = () => {
       ) : (
         favoriteItems.map(({ id, title, image, price, category }) => (
           <FavouriteCard
+            key={id}
             id={id}
             title={title}
             image={image}

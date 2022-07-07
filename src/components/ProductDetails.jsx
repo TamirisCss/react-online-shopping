@@ -5,8 +5,6 @@ import Product from "./Product";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
-
-
 const ProductDetails = () => {
   const { id } = useParams();
   const [idData, setIdData] = useState();

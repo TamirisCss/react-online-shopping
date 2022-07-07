@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
-const CartContext = createContext();
+const CartContext = createContext([]);
 
 export function CartProvider({ children }) {
   const storage = JSON.parse(localStorage.getItem("cartItems"));
@@ -17,7 +17,7 @@ export function CartProvider({ children }) {
     const cartItem = [...cartItems];
     cartItem.splice(index, 1);
     setCartItems(cartItem);
-  }
+  };
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -30,6 +30,7 @@ export function CartProvider({ children }) {
         cartItems,
         addToCart,
         removeItem,
+   
       }}
     >
       {children}

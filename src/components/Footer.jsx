@@ -20,7 +20,7 @@ const Footer = () => {
           bottom: "0",
 
           width: "100%",
-          height: 'auto',
+          minHeight: '10vh',
          
         }}
       >

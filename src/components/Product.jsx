@@ -13,12 +13,11 @@ import Box from "@mui/material/Box";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 const Product = (
-  { id, image, price, title, category, showTrash = false },
+  { id, image, price, title, category, showTrash = false, quantity},
   index
 ) => {
   const { addToCart, removeItem } = useContext(CartContext);
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
-
 
   const isCardInFavouriteItems = () => {
     const result = favoriteItems.find((item) => item.id === id);
@@ -38,7 +37,7 @@ const Product = (
             width: "100%",
             height: "100%",
             color: "#263238",
-        
+            marginBottom:"200px"
           }}
         >
           <CardContent>
@@ -76,16 +75,12 @@ const Product = (
               </div>
 
               <div className="imageContainer">
-                <img
-                 
-                  src={image}
-                  alt="#"
-                  className="imageProduct "
-                />
+                <img src={image} alt="#" className="imageProduct " />
               </div>
 
               <h6>{title}</h6>
               <h6>{`Price: $${price}`}</h6>
+              <h2>{quantity}</h2> 
               <h6>{`Category: ${category}`}</h6>
             </div>
             <Link to={`/productDetails/${id}`}>
@@ -93,6 +88,7 @@ const Product = (
                 More details
               </Button>
             </Link>
+
           </CardContent>
         </Card>
       </Box>

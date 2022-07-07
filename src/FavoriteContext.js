@@ -22,7 +22,7 @@ export function FavoriteProvide({ children }) {
   };
     useEffect(() => {
       localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
-      console.log(localStorage.getItem("favoriteItems"));
+      // console.log(localStorage.getItem("favoriteItems"));
     }, [favoriteItems.length]);
  
   return (
