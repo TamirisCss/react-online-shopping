@@ -16,15 +16,6 @@ const Cart = () => {
     setPriceItem(sum);
   };
 
-  const arrayUnique = [
-    ...new Map(cartItems.map((item) => [item.id, item])).values(),
-  ];
-  arrayUnique.forEach((element) => {
-    const newArrray = cartItems.filter((item) => item.id === element.id);
-    element.quantity = newArrray.length;
-  });
-  setGroupItems(arrayUnique);
-
   const increase = () => {
     setQuantityItems(cartItems.length);
   };
@@ -32,7 +23,14 @@ const Cart = () => {
   useEffect(() => {
     filterPrice();
     increase();
-
+    const arrayUnique = [
+      ...new Map(cartItems.map((item) => [item.id, item])).values(),
+    ];
+    arrayUnique.map((element) => {
+      const newArrray = cartItems.filter((item) => item.id === element.id);
+      element.quantity = newArrray.length;
+    });
+    setGroupItems(arrayUnique);
     return () => {};
   }, [cartItems]); // toda vez que o cart item mudar
 
