@@ -80,7 +80,7 @@ const Product = (
 
               <h6>{title}</h6>
               <h6>{`Price: $${price}`}</h6>
-              {quantity && <h3>{quantity}</h3>}
+              {quantity && <h6>{`Quantity: ${quantity}`}</h6>}
               <h6>{`Category: ${category}`}</h6>
             </div>
             <Link to={`/productDetails/${id}`}>

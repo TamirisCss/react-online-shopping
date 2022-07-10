@@ -43,7 +43,7 @@ const Cart = () => {
         </div>
       ) : (
         groupItems.map(
-          ({ id, title, image, price, category, quantity}, index) => (
+          ({ id, title, image, price, category, quantity }, index) => (
             <div style={{ padding: "6rem" }} key={id} className="smallCard">
               <Product
                 index={index}
@@ -77,11 +77,8 @@ const Cart = () => {
                 height: "20rem",
                 width: "50rem",
                 borderRadius: "10px",
-                backgroundColor: "#b388ff",
-                "&:hover": {
-                  backgroundColor: "primary.main",
-                  opacity: [0.9, 0.8, 0.7],
-                },
+                backgroundColor: "#F8F8FF",
+               
               }}
             >
               <h1>{`Total items: ${quantityItems}`}</h1>

@@ -21,7 +21,6 @@ const SearchBar = ({ onChange }) => {
           width: 500,
           maxWidth: "100%",
           color: "#651fff",
-
           borderColor: "#651fff",
           background: "#F8F8FF",
         }}
