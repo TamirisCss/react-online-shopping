@@ -1,13 +1,13 @@
 import React from "react";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import Product from "./Product";
+
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -43,6 +43,7 @@ const Products = () => {
 
   return (
     <>
+     
       {hasProducts ? (
         <SearchBar onChange={onSearchChange} />
       ) : (

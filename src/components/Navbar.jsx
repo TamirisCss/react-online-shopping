@@ -11,7 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteContext from "../FavoriteContext";
 import CartContext from "../CartContext";
 import { useContext } from "react";
-import { color } from "@mui/system";
+
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar">
-      <AppBar style={{ background: "#651fff" }} position="fixed">
+      <AppBar style={{ background: "#651fff" }} position="static">
         <Toolbar>
           <Typography
             variant="h6"
