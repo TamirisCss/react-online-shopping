@@ -11,9 +11,14 @@ const Categories = () => {
   return (
     <AppBar
       position="static"
-      style={{ background: "#651fff", display: "flex", flexDirection: "row" }}
+      style={{
+        background: "#651fff",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+      }}
     >
-      <Toolbar>
+      <Toolbar style={{ alignItems: "center" }}>
         <Link
           style={{ color: "#b388ff" }}
           className="logo"
@@ -46,7 +51,7 @@ const Categories = () => {
           className="logo"
           to="/category/electronics"
         >
-          electronics
+          Electronics
         </Link>
       </Toolbar>
     </AppBar>
