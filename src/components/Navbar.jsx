@@ -19,7 +19,10 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar">
-      <AppBar style={{ background: "#651fff" }} position="static">
+      <AppBar
+        style={{ backgroundColor: "#FFFFFF"}}
+        position="static"
+      >
         <Toolbar>
           <Typography
             variant="h6"
@@ -34,7 +37,7 @@ const Navbar = () => {
 
           <Box style={{ flexGrow: 1, color: "#b388ff" }} />
           <Box
-            style={{ color: "#b388ff" }}
+            style={{ color: "none" }}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
             <IconButton
