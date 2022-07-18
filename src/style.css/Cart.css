@@ -1,0 +1,9 @@
+.totalPrice h1 {
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 473px) {
+  .totalPrice {
+    padding: 1rem 0;
+    width: 330px;
+  }
+}

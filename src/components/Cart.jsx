@@ -4,6 +4,9 @@ import { useContext, useState, useEffect } from "react";
 import Product from "./Product";
 import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
+import { textAlign } from "@mui/system";
+
+import "../style.css/Cart.css";
 
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);
@@ -42,9 +45,17 @@ const Cart = () => {
           <img src={emptyCart} alt="cart empty" />
         </div>
       ) : (
-        groupItems.map(
-          ({ id, title, image, price, category, quantity }, index) => (
-            <div style={{ padding: "6rem" }} key={id} className="smallCard">
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
+          {groupItems.map(
+            ({ id, title, image, price, category, quantity }, index) => (
               <Product
                 index={index}
                 id={id}
@@ -55,37 +66,26 @@ const Cart = () => {
                 showTrash={true}
                 quantity={quantity}
               />
-            </div>
-          )
-        )
+            )
+          )}
+        </Box>
       )}
 
       {cartItems.length > 0 && (
-        <div style={{}}>
-          <div
-            style={{
-              display: "inline-block",
-              padding: "20px",
-              backgroundColor: "#651fff",
-              marginBottom: "6rem",
-              borderRadius: "10px",
-            }}
-          >
-            <Box
-              sx={{
-                padding: "80px",
-                height: "20rem",
-                width: "50rem",
-                borderRadius: "10px",
-                backgroundColor: "#F8F8FF",
-               
-              }}
-            >
-              <h1>{`Total items: ${quantityItems}`}</h1>
-              <h1>{`Total price: $${priceItem}`}</h1>
-            </Box>
-          </div>
-        </div>
+        <Box
+          className="totalPrice"
+          sx={{
+            padding: "3rem",
+            width: "350px",
+            borderRadius: "10px",
+            backgroundColor: "#F8F8FF",
+            margin: "1rem auto",
+            textAlign: "center",
+          }}
+        >
+          <h1>{`Total items: ${quantityItems}`}</h1>
+          <h1>{`Total price: $${priceItem.toFixed(2)}`}</h1>
+        </Box>
       )}
     </div>
   );
