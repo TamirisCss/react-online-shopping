@@ -9,23 +9,43 @@ import { height } from "@mui/system";
 
 const Footer = () => {
   return (
-    <div className="footer" >
+    <div className="footer">
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: "#6200ea",
+          gap: "1rem",
+          background: "#b388ff",
           width: "100%",
           position: "static",
           bottom: "0",
-          minHeight: "10vh",
-          marginTop: "2rem",
+          minHeight: "15vh",
         }}
       >
-        <Stack direction="row" spacing={10}>
+        <Stack
+          direction="column"
+          spacing={1}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Avatar alt="Ariane Cretani" src={ariAvatar} />
+          <h6>Ariane Crestani</h6>
+        </Stack>
+        <Stack
+          direction="column"
+          spacing={1}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Avatar alt="Ariane Cretani" src={tamiAvatar} />
+          <h6>Tamiris Cristine</h6>
         </Stack>
       </Box>
     </div>

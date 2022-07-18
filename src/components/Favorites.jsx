@@ -16,16 +16,26 @@ const Favorites = () => {
           <img src={emptyFav} alt="favorite empty" />
         </div>
       ) : (
-        favoriteItems.map(({ id, title, image, price, category }) => (
-          <FavouriteCard
-            key={id}
-            id={id}
-            title={title}
-            image={image}
-            price={price}
-            category={category}
-          />
-        ))
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
+          {favoriteItems.map(({ id, title, image, price, category }) => (
+            <FavouriteCard
+              key={id}
+              id={id}
+              title={title}
+              image={image}
+              price={price}
+              category={category}
+            />
+          ))}
+        </Box>
       )}
     </Box>
   );
