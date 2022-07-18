@@ -11,7 +11,6 @@ const SearchBar = ({ onChange }) => {
         display: "flex",
         justifyContent: "center",
         margin: "3rem",
-        padding: "3rem",
         borderColor: "#651fff",
         borderRadius: "10px",
       }}

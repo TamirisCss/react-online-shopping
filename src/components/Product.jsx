@@ -12,8 +12,10 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
+import "../style.css/Products.css";
+
 const Product = (
-  { id, image, price, title, category, showTrash = false, quantity},
+  { id, image, price, title, category, showTrash = false, quantity },
   index
 ) => {
   const { addToCart, removeItem } = useContext(CartContext);
@@ -28,20 +30,19 @@ const Product = (
     <>
       <Box
         sx={{
-          padding: "4rem",
+          padding: "1rem",
         }}
       >
         <Card
           sx={{
             alignContent: "baseline",
-            width: "100%",
-            height: "100%",
+            width: "350px",
+            height: "480px",
             color: "#263238",
-            marginBottom:"200px"
           }}
         >
           <CardContent>
-            <div key={id} className="">
+            <div key={id} className="ProductCard">
               <div className="iconsContainer">
                 <IconButton
                   style={{ color: "#6200ea" }}
@@ -83,13 +84,12 @@ const Product = (
               {quantity && <h6>{`Quantity: ${quantity}`}</h6>}
               <h6>{`Category: ${category}`}</h6>
             </div>
-            <Link to={`/productDetails/${id}`}>
-              <Button style={{ color: "#651fff" }} size="small">
-                More details
-              </Button>
-            </Link>
-
           </CardContent>
+          <Link to={`/productDetails/${id}`}>
+            <Button style={{ color: "#651fff", textAlign: "end" }} size="small">
+              More details
+            </Button>
+          </Link>
         </Card>
       </Box>
     </>

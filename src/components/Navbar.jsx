@@ -12,6 +12,7 @@ import FavoriteContext from "../FavoriteContext";
 import CartContext from "../CartContext";
 import { useContext } from "react";
 
+import "../style.css/Navbar.css"
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
@@ -20,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="nav-bar">
       <AppBar
-        style={{ backgroundColor: "#FFFFFF"}}
+        style={{ backgroundColor: "#FFFFFF", width: "100%" }}
         position="static"
       >
         <Toolbar>
@@ -28,7 +29,7 @@ const Navbar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{ display: { sm: "block" } }}
           >
             <Link style={{ color: "#b388ff" }} className="logo" to="/">
               Online Shopping
@@ -36,10 +37,7 @@ const Navbar = () => {
           </Typography>
 
           <Box style={{ flexGrow: 1, color: "#b388ff" }} />
-          <Box
-            style={{ color: "none" }}
-            sx={{ display: { xs: "none", md: "flex" } }}
-          >
+          <Box style={{ color: "none" }} sx={{ display: { md: "flex" } }}>
             <IconButton
               style={{ color: "#b388ff" }}
               size="large"

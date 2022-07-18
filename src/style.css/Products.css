@@ -1,8 +1,10 @@
 .App {
   text-align: center;
-
 }
-
+.ProductCard h6 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
 .imageContainer {
   height: 200px;
   width: 100%;
@@ -12,20 +14,3 @@
   height: 100%;
   object-fit: contain;
 }
-
-
-/* .iconsContainer {
-  align-self: flex-end;
-} */
-
-/*navbar*/
-.nav-bar {
-  margin-bottom: 5rem;
-}
-.logo {
-  text-decoration: none;
-}
-
-
-
-

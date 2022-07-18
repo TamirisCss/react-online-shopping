@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import Product from "./Product";
 
-
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -23,7 +22,6 @@ const Products = () => {
       product.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       product.category.toLowerCase().includes(searchValue.toLocaleLowerCase())
     );
-
   };
 
   useEffect(() => {
@@ -43,7 +41,6 @@ const Products = () => {
 
   return (
     <>
-     
       {hasProducts ? (
         <SearchBar onChange={onSearchChange} />
       ) : (
@@ -53,29 +50,28 @@ const Products = () => {
           </h1>
         )
       )}
-      <Box sx={{ flexGrow: 1, minHeight: "100vh" }}>
-        <Grid
-          container
-          spacing={{
-            xs: 3,
-            md: 4,
-          }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          {data
-            .filter(filterSearch)
-            .map(({ id, image, title, price, category }) => (
-              <Grid item xs={2} sm={4} md={4}>
-                <Product
-                  id={id}
-                  image={image}
-                  title={title}
-                  price={price}
-                  category={category}
-                />
-              </Grid>
-            ))}
-        </Grid>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1rem",
+        }}
+      >
+        {data
+          .filter(filterSearch)
+          .map(({ id, image, title, price, category }) => (
+            <div>
+              <Product
+                id={id}
+                image={image}
+                title={title}
+                price={price}
+                category={category}
+              />
+            </div>
+          ))}
       </Box>
     </>
   );
