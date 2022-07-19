@@ -14,7 +14,7 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 import "../style.css/Products.css";
 
-const Product = (
+const CartProduct = (
   { id, image, price, title, category, showTrash = false, quantity },
   index
 ) => {
@@ -38,6 +38,7 @@ const Product = (
             alignContent: "baseline",
             width: "350px",
             height: "480px",
+            color: "#263238",
           }}
         >
           <CardContent>
@@ -95,4 +96,4 @@ const Product = (
   );
 };
 
-export default Product;
+export default CartProduct;

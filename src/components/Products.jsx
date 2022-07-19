@@ -56,7 +56,8 @@ const Products = () => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: "1rem",
+          gap: "2rem",
+       
         }}
       >
         {data

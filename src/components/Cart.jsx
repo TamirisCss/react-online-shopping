@@ -1,7 +1,7 @@
 import React from "react";
 import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
-import Product from "./Product";
+import CartProduct from "./CartProduct";
 import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
 import { textAlign } from "@mui/system";
@@ -56,7 +56,7 @@ const Cart = () => {
         >
           {groupItems.map(
             ({ id, title, image, price, category, quantity }, index) => (
-              <Product
+              <CartProduct
                 index={index}
                 id={id}
                 title={title}

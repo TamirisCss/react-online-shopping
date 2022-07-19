@@ -2,9 +2,10 @@ body {
   margin: 0;
   font: optional;
   font-size: 25px;
-  align-items: baseline;
+  align-content: baseline;
   position: relative;
   min-height: 100vh;
+ 
 
 }
 

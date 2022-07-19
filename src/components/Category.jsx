@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import CardContent from "@mui/material/CardContent";
+import Card from "@mui/material/Card";
 
 
 const Category = () => {
@@ -27,28 +28,28 @@ const Category = () => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1, minHeight: "100vh" }}>
-        <Grid
-          container
-          spacing={{
-            xs: 3,
-            md: 4,
-          }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          {category.map((item) => (
-            <Grid item xs={2} sm={4} md={4}>
-              <Product
-                key = {item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
-                category={item.category}
-              />
-            </Grid>
-          ))}
-        </Grid>
+      <Box
+        sx={{
+          flexGrow: 1,
+          minHeight: "100vh",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          padding:'30px'
+        }}
+      >
+        {category.map((item) => (
+          <CardContent>
+            <Product
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              title={item.title}
+              price={item.price}
+              category={item.category}
+            />
+          </CardContent>
+        ))}
       </Box>
     </>
   );
