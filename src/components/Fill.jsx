@@ -22,12 +22,12 @@ const Fill = () => {
 
   return (
     <>
-      <Box mr={0} xs={{ display: "flex" }}>
+      <Container xs={{ display: "flex", flexWrap: "wrap" }}>
         <Paper elevation={0} square>
           <Box py={2} px={2}>
             <Typography variant="h6">Billing Address</Typography>
-            <Grid container>
-              <Grid item xs={12}>
+            <Grid container spacing={1}>
+              <Grid item xs={10}>
                 <TextField
                   label="Full Name"
                   name="name"
@@ -98,7 +98,7 @@ const Fill = () => {
             </Grid>
           </Box>
         </Paper>
-      </Box>
+      </Container>
 
       <Box py={2} px={2}>
         <Typography variant="h6">Payment Card</Typography>
