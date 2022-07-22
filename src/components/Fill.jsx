@@ -27,7 +27,7 @@ const Fill = () => {
           <Box py={2} px={2}>
             <Typography variant="h6">Billing Address</Typography>
             <Grid container spacing={1}>
-              <Grid item xs={10}>
+              <Grid item xs={12}>
                 <TextField
                   label="Full Name"
                   name="name"
