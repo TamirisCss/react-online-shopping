@@ -7,3 +7,16 @@
     width: 330px;
   }
 }
+@media screen and (max-width: 1400px) {
+  .cartContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cartItems{
+    
+    flex-wrap: wrap;
+    
+
+  }
+
+}
