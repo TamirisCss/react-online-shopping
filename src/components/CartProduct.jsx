@@ -55,7 +55,7 @@ const CartProduct = (
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          marginLeft: "6rem",
+          marginLeft: "2rem",
           width: "30rem",
         }}
       >

@@ -41,11 +41,11 @@ const Cart = () => {
 
   return (
     <div
+      className="cartContainer"
       style={{
         display: "flex",
         flexWrap: "row",
-        padding: "3rem",
-        justifyContent: "space-between",
+        padding: "2rem",
       }}
     >
       <Stack>
@@ -56,10 +56,11 @@ const Cart = () => {
           </div>
         ) : (
           <Card
+            className="cartItems"
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "60rem"
+              width: "50rem",
             }}
           >
             {groupItems.map(
