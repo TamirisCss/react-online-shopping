@@ -17,10 +17,10 @@ const Footer = () => {
           alignItems: "center",
           gap: "1rem",
           background: "#b388ff",
-          width: "100%",
-          position: "static",
+       
           bottom: "0",
-          minHeight: "15vh",
+          position:'relative',
+          padding:'80px'
         }}
       >
         <Stack
