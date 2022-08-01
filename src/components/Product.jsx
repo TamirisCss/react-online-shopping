@@ -30,50 +30,19 @@ const Product = (
     <>
       <Box
         sx={{
-          padding: "1rem",
+          padding: "2rem",
+          alignItems: "baseline",
         }}
       >
         <Card
           sx={{
-            alignContent: "baseline",
-            width: "350px",
-            height: "480px",
+            width: "370px",
+            height: "500px",
+            margin:'2rem'
           }}
         >
           <CardContent>
             <div key={id} className="ProductCard">
-              <div className="iconsContainer">
-                <IconButton
-                  style={{ color: "#b388ff" }}
-                  onClick={() => addFavorite(id, image, title, price, category)}
-                  aria-label="add to favorites"
-                >
-                  {isCardInFavouriteItems() ? (
-                    <Favorite />
-                  ) : (
-                    <FavoriteBorderIcon />
-                  )}
-                </IconButton>
-
-                <IconButton
-                  style={{ color: "#b388ff" }}
-                  aria-label="add to cart"
-                  onClick={() => addToCart(id, image, title, price, category)}
-                >
-                  <AddShoppingCartIcon />
-                </IconButton>
-                <IconButton>
-                  {showTrash && (
-                    <DeleteOutlinedIcon
-                      style={{ color: "#b388ff" }}
-                      onClick={() => removeItem(index)}
-                    >
-                      Remove
-                    </DeleteOutlinedIcon>
-                  )}
-                </IconButton>
-              </div>
-
               <div className="imageContainer">
                 <img src={image} alt="#" className="imageProduct " />
               </div>
@@ -83,9 +52,46 @@ const Product = (
               {quantity && <h6>{`Quantity: ${quantity}`}</h6>}
               <h6>{`Category: ${category}`}</h6>
             </div>
+            <div className="iconsContainer">
+              <IconButton
+                style={{ color: "#b388ff" }}
+                onClick={() => addFavorite(id, image, title, price, category)}
+                aria-label="add to favorites"
+              >
+                {isCardInFavouriteItems() ? (
+                  <Favorite />
+                ) : (
+                  <FavoriteBorderIcon />
+                )}
+              </IconButton>
+
+              <IconButton
+                style={{ color: "#b388ff" }}
+                aria-label="add to cart"
+                onClick={() => addToCart(id, image, title, price, category)}
+              >
+                <AddShoppingCartIcon />
+              </IconButton>
+              <IconButton>
+                {showTrash && (
+                  <DeleteOutlinedIcon
+                    style={{ color: "#b388ff" }}
+                    onClick={() => removeItem(index)}
+                  >
+                    Remove
+                  </DeleteOutlinedIcon>
+                )}
+              </IconButton>
+            </div>
           </CardContent>
           <Link to={`/productDetails/${id}`}>
-            <Button style={{ color: "#b388ff", textAlign: "end" }} size="small">
+            <Button
+              style={{
+                color: "#b388ff",
+                outline: "none",
+              }}
+              size="small"
+            >
               More details
             </Button>
           </Link>
