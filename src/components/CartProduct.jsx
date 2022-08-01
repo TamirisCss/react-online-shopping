@@ -20,7 +20,6 @@ import Grid from "@mui/material/Grid";
 import "../style.css/Products.css";
 import { StackedBarChart } from "@mui/icons-material";
 
-
 const CartProduct = (
   { id, image, price, title, category, showTrash = false, quantity },
   index
@@ -37,68 +36,66 @@ const CartProduct = (
     <Card
       sx={{
         display: "flex",
-        flexDirection: "column",
-
-        justifyItems: "baseline",
-
+        flexWrap: "wrap",
+        padding: "2rem",
       }}
     >
-      <Stack sx={{ display: "inlineBlock"}}>
-        <CardMedia
-          sx={{
-            display: "flex",
-            width: 160,
-            height: "auto",
-          }}
-        >
-          <img src={image} alt="#" className="imageProduct " />
-        </CardMedia>
-      </Stack>
-      <Stack
+      <CardMedia
         sx={{
           display: "flex",
-          flexDirection: "column",
-        
-       
+          width: 170,
+          height: "auto",
         }}
       >
-      <Typography>{title}</Typography>
-      <Typography>{`Price: $${price}`}</Typography>
-      {quantity && <Typography>{`Quantity: ${quantity}`}</Typography>}
-      <Typography>{`Category: ${category}`}</Typography>
-      <Link to={`/productDetails/${id}`}>
-        <Button style={{ color: "#b388ff", textAlign: "end" }} size="small">
-          More details
-        </Button>
-      </Link>
-      <Box>
-        <IconButton
-          style={{ color: "#b388ff" }}
-          onClick={() => addFavorite(id, image, title, price, category)}
-          aria-label="add to favorites"
-        >
-          {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
-        </IconButton>
+        <img src={image} alt="#" className="imageProduct " />
+      </CardMedia>
 
-        <IconButton
-          style={{ color: "#b388ff" }}
-          aria-label="add to cart"
-          onClick={() => addToCart(id, image, title, price, category)}
-        >
-          <AddShoppingCartIcon />
-        </IconButton>
-        <IconButton>
-          {showTrash && (
-            <DeleteOutlinedIcon
-              style={{ color: "#b388ff" }}
-              onClick={() => removeItem(index)}
-            >
-              Remove
-            </DeleteOutlinedIcon>
-          )}
-        </IconButton>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          marginLeft: "6rem",
+          width: "30rem",
+        }}
+      >
+        <Typography>{title}</Typography>
+        <Typography>{`Price: $${price}`}</Typography>
+        {quantity && <Typography>{`Quantity: ${quantity}`}</Typography>}
+        <Typography>{`Category: ${category}`}</Typography>
+        <Link to={`/productDetails/${id}`}>
+          <Button style={{ color: "#b388ff", textAlign: "end" }} size="small">
+            More details
+          </Button>
+        </Link>
+        <Box>
+          <IconButton
+            style={{ color: "#b388ff" }}
+            onClick={() => addFavorite(id, image, title, price, category)}
+            aria-label="add to favorites"
+          >
+            {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
+          </IconButton>
+
+          <IconButton
+            style={{ color: "#b388ff" }}
+            aria-label="add to cart"
+            onClick={() => addToCart(id, image, title, price, category)}
+          >
+            <AddShoppingCartIcon />
+          </IconButton>
+          <IconButton>
+            {showTrash && (
+              <DeleteOutlinedIcon
+                style={{ color: "#b388ff" }}
+                onClick={() => removeItem(index)}
+              >
+                Remove
+              </DeleteOutlinedIcon>
+            )}
+          </IconButton>
+        </Box>
       </Box>
-      </Stack>
     </Card>
   );
 };

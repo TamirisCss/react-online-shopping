@@ -40,7 +40,14 @@ const Cart = () => {
   }, [cartItems]); // toda vez que o cart item mudar
 
   return (
-    <Box style={{ display: "flex",flexWrap:'row', padding: "3rem",justifyContent:'space-between'}}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "row",
+        padding: "3rem",
+        justifyContent: "space-between",
+      }}
+    >
       <Stack>
         {cartItems.length === 0 ? (
           <div>
@@ -52,10 +59,7 @@ const Cart = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "60rem",
-              padding: "3rem",
-         
-           
+              width: "60rem"
             }}
           >
             {groupItems.map(
@@ -90,7 +94,7 @@ const Cart = () => {
         )}
       </Stack>
       <Fill />
-    </Box>
+    </div>
   );
 };
 

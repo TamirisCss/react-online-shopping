@@ -22,7 +22,7 @@ const Fill = () => {
 
   return (
     <>
-      <Container xs={{ display: "flex", flexWrap: "wrap" }}>
+      <Container xs={{ display: "flex", flexDirection:'row'}}>
         <Paper elevation={0} square>
           <Box py={2} px={2}>
             <Typography variant="h6">Billing Address</Typography>
