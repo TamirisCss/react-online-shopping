@@ -1,9 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
+import Card from "@mui/material/Card";
+
 
 const Category = () => {
   const [category, setCategory] = useState([]);
@@ -33,7 +35,7 @@ const Category = () => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          padding: "30px",
+          padding:'30px'
         }}
       >
         {category.map((item) => (
@@ -53,4 +55,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Category

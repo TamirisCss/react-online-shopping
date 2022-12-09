@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 
 import ariAvatar from "../images/ari-avatar.jpeg";
 import tamiAvatar from "../images/tami-avatar.jpg";
+import { height } from "@mui/system";
 
 const Footer = () => {
   return (
@@ -16,10 +17,10 @@ const Footer = () => {
           alignItems: "center",
           gap: "1rem",
           background: "#b388ff",
-
+       
           bottom: "0",
-          position: "relative",
-          padding: "80px",
+          position:'relative',
+          padding:'80px'
         }}
       >
         <Stack

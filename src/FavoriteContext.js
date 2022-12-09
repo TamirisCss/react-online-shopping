@@ -9,7 +9,7 @@ export function FavoriteProvide({ children }) {
   const addFavorite = (id, image, title, price, category) => {
     let newArray = [...favoriteItems];
     //addicionando o item no favorite se o item ainda nao estiver adicionado
-    if (favoriteItems.find((element) => element.id === id) === undefined) {
+    if (favoriteItems.find((element) => element.id == id) === undefined) {
       newArray.push({ id, image, title, price, category });
     } else {
       //predicate pesquisa
@@ -20,7 +20,7 @@ export function FavoriteProvide({ children }) {
     console.log(newArray);
     setFavoriteItems(newArray);
   };
-
+  
   useEffect(() => {
     localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
     // console.log(localStorage.getItem("favoriteItems"));
