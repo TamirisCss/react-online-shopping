@@ -1,13 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Typography,
-  CardMedia,
-  Container,
-  Stack,
-  Box,
-  Card,
-} from "@mui/material";
+import { Button, Typography, CardMedia, Box, Card } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Favorite from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -16,9 +8,7 @@ import CartContext from "../CartContext";
 import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import Grid from "@mui/material/Grid";
 import "../style.css/Products.css";
-import { StackedBarChart } from "@mui/icons-material";
 
 const CartProduct = (
   { id, image, price, title, category, showTrash = false, quantity },

@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { Typography, Box, TextField, Paper } from "@mui/material";
 import { useState } from "react";
-import { Card, Container } from "@mui/material";
+import { Container } from "@mui/material";
 
 const Fill = () => {
   const [user, setUser] = useState({
@@ -19,10 +19,12 @@ const Fill = () => {
     exp: "",
     cvv: "",
   });
+  console.log(setUser(user));
+  console.log(setCard(user));
 
   return (
     <>
-      <Container xs={{ display: "flex", flexDirection:'row'}}>
+      <Container xs={{ display: "flex", flexDirection: "row" }}>
         <Paper elevation={0} square>
           <Box py={2} px={2}>
             <Typography variant="h6">Billing Address</Typography>

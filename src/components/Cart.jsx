@@ -2,10 +2,8 @@ import React from "react";
 import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
 import CartProduct from "./CartProduct";
-import Box from "@mui/material/Box";
 import emptyCart from "../images/empty-cart-img.jpeg";
-import { textAlign } from "@mui/system";
-import { Card, Grid, Container, Stack } from "@mui/material";
+import { Card } from "@mui/material";
 import Fill from "./Fill";
 
 import "../style.css/Cart.css";

@@ -1,7 +1,5 @@
 import React from "react";
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState, useEffect } from "react";
@@ -57,7 +55,6 @@ const Products = () => {
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "2rem",
-       
         }}
       >
         {data
