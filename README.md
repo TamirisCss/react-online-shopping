@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React
 - axios
 - Material ui
+- [FakeStore API](https://fakestoreapi.com/docs)
 
 ### Overview
 
@@ -19,7 +20,6 @@ Users should be able to:
 - Check all the favorite
 - Add and delete products in the cart
 - Check the total sum of the products in the cart
-
 
 ### Authors
 
