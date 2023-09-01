@@ -1,18 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Badge from "@mui/material/Badge";
-import StarIcon from "@mui/icons-material/Star";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteContext from "../FavoriteContext";
-import CartContext from "../CartContext";
+import React, { Link } from "react-router-dom";
 import { useContext } from "react";
 
-import "../style.css/Navbar.css"
+import FavoriteContext from "../../FavoriteContext";
+import CartContext from "../../CartContext";
+
+import StarIcon from "@mui/icons-material/Star";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import IconButton from "@mui/material/IconButton";
+
+import "./Navbar.css";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
@@ -20,12 +16,12 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar">
-      <AppBar
+      <div
         style={{ backgroundColor: "#FFFFFF", width: "100%" }}
         position="static"
       >
-        <Toolbar>
-          <Typography
+        <div>
+          <div
             variant="h6"
             noWrap
             component="div"
@@ -34,23 +30,23 @@ const Navbar = () => {
             <Link style={{ color: "#b388ff" }} className="logo" to="/">
               Online Shopping
             </Link>
-          </Typography>
+          </div>
 
-          <Box style={{ flexGrow: 1, color: "#b388ff" }} />
-          <Box style={{ color: "none" }} sx={{ display: { md: "flex" } }}>
+          <div style={{ flexGrow: 1, color: "#b388ff" }} />
+          <div style={{ color: "none" }} sx={{ display: { md: "flex" } }}>
             <IconButton
               style={{ color: "#b388ff" }}
               size="large"
               aria-label="show 4 new mails"
             >
-              <Badge
-                badgeContent={favoriteItems.length}
+              <div
+                divContent={favoriteItems.length}
                 style={{ color: "#b388ff" }}
               >
                 <Link to="/favorites">
                   <StarIcon style={{ color: "#b388ff" }} />
                 </Link>
-              </Badge>
+              </div>
             </IconButton>
             <IconButton
               size="large"
@@ -58,18 +54,15 @@ const Navbar = () => {
               color="inherit"
               style={{ color: "#b388ff" }}
             >
-              <Badge
-                badgeContent={cartItems.length}
-                style={{ color: "#b388ff" }}
-              >
+              <div divContent={cartItems.length} style={{ color: "#b388ff" }}>
                 <Link to="/cart">
                   <ShoppingCartIcon style={{ color: "#b388ff" }} />
                 </Link>
-              </Badge>
+              </div>
             </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

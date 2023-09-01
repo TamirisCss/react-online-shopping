@@ -3,12 +3,12 @@ import { useContext, useState, useEffect } from "react";
 
 //Components
 import CartProduct from "../CartProduct/CartProduct";
-import Fill from "../Fill";
 
 import CartContext from "../../CartContext";
 import emptyCart from "../../images/empty-cart-img.jpeg";
 
 import "./Cart.css";
+import Fill from "../Fill/Fill";
 
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);

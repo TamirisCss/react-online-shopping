@@ -1,7 +1,6 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Products from "./components/Products/Products";
 
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import {
@@ -9,6 +8,7 @@ import {
   Categories,
   Category,
   Favorites,
+  Navbar,
   ProductDetails,
 } from "./components";
 
