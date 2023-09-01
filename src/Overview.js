@@ -6,8 +6,7 @@ import Favorites from "./components/Favorites";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Category from "./components/Category";
-import Categories from "./components/Categories";
-import { Cart } from "./components";
+import { Cart, Categories } from "./components";
 
 export default function Overview() {
   return (
