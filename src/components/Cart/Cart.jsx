@@ -1,14 +1,14 @@
 import React from "react";
-import CartContext from "../CartContext";
 import { useContext, useState, useEffect } from "react";
-import CartProduct from "./CartProduct";
-import Box from "@mui/material/Box";
-import emptyCart from "../images/empty-cart-img.jpeg";
-import { textAlign } from "@mui/system";
-import { Card, Grid, Container, Stack } from "@mui/material";
-import Fill from "./Fill";
 
-import "../style.css/Cart.css";
+//Components
+import CartProduct from "../CartProduct";
+import Fill from "../Fill";
+
+import CartContext from "../../CartContext";
+import emptyCart from "../../images/empty-cart-img.jpeg";
+
+import "./Cart.css";
 
 const Cart = () => {
   const [quantityItems, setQuantityItems] = useState(0);
@@ -48,14 +48,14 @@ const Cart = () => {
         padding: "2rem",
       }}
     >
-      <Stack>
+      <div>
         {cartItems.length === 0 ? (
           <div>
             <h2>Your basket is empty</h2>
             <img src={emptyCart} alt="cart empty" />
           </div>
         ) : (
-          <Card
+          <div
             className="cartItems"
             sx={{
               display: "flex",
@@ -78,7 +78,7 @@ const Cart = () => {
               )
             )}
             {cartItems.length > 0 && (
-              <Card
+              <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
@@ -89,11 +89,12 @@ const Cart = () => {
                   <h1>{`Total items: ${quantityItems}`}</h1>
                   <h1>{`Total price: $${priceItem.toFixed(2)}`}</h1>
                 </div>
-              </Card>
+              </div>
             )}
-          </Card>
+          </div>
         )}
-      </Stack>
+      </div>
+
       <Fill />
     </div>
   );
