@@ -1,24 +1,16 @@
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Typography,
-  CardMedia,
-  Container,
-  Stack,
-  Box,
-  Card,
-} from "@mui/material";
+import { useContext } from "react";
+
+import CartContext from "../../CartContext";
+import FavoriteContext from "../../FavoriteContext";
+
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import IconButton from "@mui/material/IconButton";
 import Favorite from "@mui/icons-material/Favorite";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useContext } from "react";
-import CartContext from "../CartContext";
-import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import Grid from "@mui/material/Grid";
-import "../style.css/Products.css";
-import { StackedBarChart } from "@mui/icons-material";
+
+import "./Products.css";
 
 const CartProduct = (
   { id, image, price, title, category, showTrash = false, quantity },
@@ -33,14 +25,14 @@ const CartProduct = (
   };
 
   return (
-    <Card
+    <div
       sx={{
         display: "flex",
         flexWrap: "wrap",
         padding: "2rem",
       }}
     >
-      <CardMedia
+      <div
         sx={{
           display: "flex",
           width: 170,
@@ -48,9 +40,9 @@ const CartProduct = (
         }}
       >
         <img src={image} alt="#" className="imageProduct " />
-      </CardMedia>
+      </div>
 
-      <Box
+      <div
         sx={{
           display: "flex",
           alignItems: "center",
@@ -59,16 +51,16 @@ const CartProduct = (
           width: "30rem",
         }}
       >
-        <Typography>{title}</Typography>
-        <Typography>{`Price: $${price}`}</Typography>
-        {quantity && <Typography>{`Quantity: ${quantity}`}</Typography>}
-        <Typography>{`Category: ${category}`}</Typography>
+        <div>{title}</div>
+        <div>{`Price: $${price}`}</div>
+        {quantity && <div>{`Quantity: ${quantity}`}</div>}
+        <div>{`Category: ${category}`}</div>
         <Link to={`/productDetails/${id}`}>
-          <Button style={{ color: "#b388ff", textAlign: "end" }} size="small">
+          <button style={{ color: "#b388ff", textAlign: "end" }} size="small">
             More details
-          </Button>
+          </button>
         </Link>
-        <Box>
+        <div>
           <IconButton
             style={{ color: "#b388ff" }}
             onClick={() => addFavorite(id, image, title, price, category)}
@@ -94,9 +86,9 @@ const CartProduct = (
               </DeleteOutlinedIcon>
             )}
           </IconButton>
-        </Box>
-      </Box>
-    </Card>
+        </div>
+      </div>
+    </div>
   );
 };
 

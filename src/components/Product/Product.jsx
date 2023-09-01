@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
+import { useContext } from "react";
+
+import CartContext from "../../CartContext";
+import FavoriteContext from "../../FavoriteContext";
+
 import Favorite from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useContext } from "react";
-import CartContext from "../CartContext";
-import FavoriteContext from "../FavoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-
-import "../style.css/Products.css";
 
 const Product = (
   { id, image, price, title, category, showTrash = false, quantity },
@@ -28,20 +24,20 @@ const Product = (
 
   return (
     <>
-      <Box
+      <div
         sx={{
           padding: "2rem",
           alignItems: "baseline",
         }}
       >
-        <Card
+        <div
           sx={{
             width: "370px",
             height: "500px",
-            margin:'2rem'
+            margin: "2rem",
           }}
         >
-          <CardContent>
+          <div>
             <div key={id} className="ProductCard">
               <div className="imageContainer">
                 <img src={image} alt="#" className="imageProduct " />
@@ -83,9 +79,9 @@ const Product = (
                 )}
               </IconButton>
             </div>
-          </CardContent>
+          </div>
           <Link to={`/productDetails/${id}`}>
-            <Button
+            <button
               style={{
                 color: "#b388ff",
                 outline: "none",
@@ -93,10 +89,10 @@ const Product = (
               size="small"
             >
               More details
-            </Button>
+            </button>
           </Link>
-        </Card>
-      </Box>
+        </div>
+      </div>
     </>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import FavoriteContext from "../FavoriteContext";
 import { useContext } from "react";
-import FavouriteCard from "./Product";
 import emptyFav from "../images/empty-fav-img.png";
 import Box from "@mui/material/Box";
 
@@ -26,14 +25,14 @@ const Favorites = () => {
           }}
         >
           {favoriteItems.map(({ id, title, image, price, category }) => (
-            <FavouriteCard
+            <div
               key={id}
               id={id}
               title={title}
               image={image}
               price={price}
               category={category}
-            />
+            ></div>
           ))}
         </Box>
       )}

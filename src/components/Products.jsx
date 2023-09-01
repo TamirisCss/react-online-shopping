@@ -6,7 +6,7 @@ import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
-import Product from "./Product";
+import Product from "./Product/Product";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -57,7 +57,6 @@ const Products = () => {
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "2rem",
-       
         }}
       >
         {data

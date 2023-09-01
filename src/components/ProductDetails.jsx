@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Product from "./Product";
+
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Product from "./Product/Product";
 
 const ProductDetails = () => {
   const { id } = useParams();

@@ -2,7 +2,7 @@ import React from "react";
 import { useContext, useState, useEffect } from "react";
 
 //Components
-import CartProduct from "../CartProduct";
+import CartProduct from "../CartProduct/CartProduct";
 import Fill from "../Fill";
 
 import CartContext from "../../CartContext";
