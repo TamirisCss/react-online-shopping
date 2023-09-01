@@ -3,8 +3,8 @@ import axios from "axios";
 
 import CircularProgress from "@mui/material/CircularProgress";
 
-import SearchBar from "../SearchBar";
 import Product from "../Product/Product";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);

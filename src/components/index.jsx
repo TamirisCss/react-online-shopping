@@ -7,3 +7,5 @@ export { default as ProductDetails } from "./ProductDetails/ProductDetails";
 export { default as Favorites } from "./Favorites/Favorites";
 export { default as Fill } from "./Fill/Fill";
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as Footer } from "./Footer/Footer";
+export { default as SearchBar } from "./SearchBar/SearchBar";

@@ -1,7 +1,6 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 
+import TextField from "@mui/material/TextField";
 
 const SearchBar = ({ onChange }) => {
   return (
@@ -15,7 +14,7 @@ const SearchBar = ({ onChange }) => {
         borderRadius: "10px",
       }}
     >
-      <Box
+      <div
         sx={{
           width: 500,
           maxWidth: "100%",
@@ -31,7 +30,7 @@ const SearchBar = ({ onChange }) => {
           id="Filter"
           onChange={onChange}
         />
-      </Box>
+      </div>
     </div>
   );
 };
