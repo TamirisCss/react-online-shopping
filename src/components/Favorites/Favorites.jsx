@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import FavoriteContext from "../../FavoriteContext";
 import emptyFav from "../../images/empty-fav-img.png";
+import { FavoriteContext } from "../../contexts";
 
 const Favorites = () => {
   const { favoriteItems } = useContext(FavoriteContext);

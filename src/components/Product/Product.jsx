@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
-import CartContext from "../../CartContext";
-import FavoriteContext from "../../FavoriteContext";
-
 import Favorite from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import IconButton from "@mui/material/IconButton";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { CartContext, FavoriteContext } from "../../contexts";
 
 const Product = (
   { id, image, price, title, category, showTrash = false, quantity },

@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 const FavoriteContext = createContext([]);
 
-export function FavoriteProvide({ children }) {
+export function FavoriteProvider({ children }) {
   const storage = JSON.parse(localStorage.getItem("favoriteItems"));
   const [favoriteItems, setFavoriteItems] = useState(storage || []);
 
@@ -20,7 +20,7 @@ export function FavoriteProvide({ children }) {
     console.log(newArray);
     setFavoriteItems(newArray);
   };
-  
+
   useEffect(() => {
     localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
     // console.log(localStorage.getItem("favoriteItems"));

@@ -1,5 +1,4 @@
-import { CartProvider } from "./CartContext";
-import { FavoriteProvide } from "./FavoriteContext";
+import { CartProvider, FavoriteProvider } from "./contexts";
 
 //Page
 import Overview from "./Overview";
@@ -8,9 +7,9 @@ const App = () => {
   return (
     <div>
       <CartProvider>
-        <FavoriteProvide>
+        <FavoriteProvider>
           <Overview />
-        </FavoriteProvide>
+        </FavoriteProvider>
       </CartProvider>
     </div>
   );

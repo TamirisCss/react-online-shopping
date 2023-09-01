@@ -1,14 +1,12 @@
 import React, { Link } from "react-router-dom";
 import { useContext } from "react";
 
-import FavoriteContext from "../../FavoriteContext";
-import CartContext from "../../CartContext";
-
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 
 import "./Navbar.css";
+import { CartContext, FavoriteContext } from "../../contexts";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
