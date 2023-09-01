@@ -1,21 +1,20 @@
-import React from "react";
-import FavoriteContext from "../FavoriteContext";
-import { useContext } from "react";
-import emptyFav from "../images/empty-fav-img.png";
-import Box from "@mui/material/Box";
+import React, { useContext } from "react";
+
+import FavoriteContext from "../../FavoriteContext";
+import emptyFav from "../../images/empty-fav-img.png";
 
 const Favorites = () => {
   const { favoriteItems } = useContext(FavoriteContext);
 
   return (
-    <Box>
+    <div>
       {favoriteItems.length === 0 ? (
         <div>
           <h2>Your favorite is empty</h2>
           <img src={emptyFav} alt="favorite empty" />
         </div>
       ) : (
-        <Box
+        <div
           sx={{
             minHeight: "100vh",
             display: "flex",
@@ -34,9 +33,9 @@ const Favorites = () => {
               category={category}
             ></div>
           ))}
-        </Box>
+        </div>
       )}
-    </Box>
+    </div>
   );
 };
 

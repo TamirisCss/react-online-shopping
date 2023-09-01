@@ -1,10 +1,7 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Product from "./Product/Product";
+import Product from "../Product/Product";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -27,24 +24,24 @@ const ProductDetails = () => {
     <>
       {idData && (
         <>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-              <Grid style={{ padding: "6rem" }} item xs={10} md={12}>
+          <div sx={{ flexGrow: 1 }}>
+            <div container spacing={2}>
+              <div style={{ padding: "6rem" }} item xs={10} md={12}>
                 <Product
                   image={idData.image}
                   title={idData.title}
                   price={idData.price}
                   category={idData.category}
                 />
-              </Grid>
-            </Grid>
-          </Box>
+              </div>
+            </div>
+          </div>
         </>
       )}
       {!idData && (
-        <Box sx={{ minHeight: "60vh" }}>
+        <div sx={{ minHeight: "60vh" }}>
           <h2>Loading...</h2>
-        </Box>
+        </div>
       )}
     </>
   );

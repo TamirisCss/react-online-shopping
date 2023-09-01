@@ -1,12 +1,16 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Products from "./components/Products/Products";
-import ProductDetails from "./components/ProductDetails";
-import Favorites from "./components/Favorites";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import { Cart, Categories, Category } from "./components";
+import {
+  Cart,
+  Categories,
+  Category,
+  Favorites,
+  ProductDetails,
+} from "./components";
 
 export default function Overview() {
   return (
