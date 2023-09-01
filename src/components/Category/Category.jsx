@@ -1,10 +1,8 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import CardContent from "@mui/material/CardContent";
-import Card from "@mui/material/Card";
-import Product from "./Product/Product";
+import Product from "../Product/Product";
 
 const Category = () => {
   const [category, setCategory] = useState([]);
@@ -27,7 +25,7 @@ const Category = () => {
 
   return (
     <>
-      <Box
+      <div
         sx={{
           flexGrow: 1,
           minHeight: "100vh",
@@ -49,7 +47,7 @@ const Category = () => {
             />
           </CardContent>
         ))}
-      </Box>
+      </div>
     </>
   );
 };

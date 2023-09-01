@@ -1,12 +1,10 @@
-import React from "react";
-import { experimentalStyled as styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import CircularProgress from "@mui/material/CircularProgress";
-import { useState, useEffect } from "react";
-import SearchBar from "../components/SearchBar";
-import Product from "./Product/Product";
+
+import SearchBar from "../SearchBar";
+import Product from "../Product/Product";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -50,7 +48,7 @@ const Products = () => {
           </h1>
         )
       )}
-      <Box
+      <div
         sx={{
           minHeight: "100vh",
           display: "flex",
@@ -72,7 +70,7 @@ const Products = () => {
               />
             </div>
           ))}
-      </Box>
+      </div>
     </>
   );
 };
