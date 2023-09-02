@@ -1,62 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import "./Categories.css";
+import * as S from "./styles";
 
 const Categories = () => {
+  const navigate = useNavigate();
+
+  const handleWomenCategory = () => {
+    navigate("/category/women's%20clothing");
+  };
+
+  const handleMenCategory = () => {
+    navigate("/category/men's%20clothing");
+  };
+
+  const handleJeweleryCategory = () => {
+    navigate("/category/jewelery");
+  };
+
+  const handleElectronicsCategory = () => {
+    navigate("/category/electronics");
+  };
+
   return (
-    <div
-      className="categoriesContainer"
-      position="static"
-      style={{
-        background: "#FFFFFF",
-        display: "flex",
-        gap: "0.50rem",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        color: "#b388ff",
-        padding: "40px",
-        outlineStyle: "auto",
-        margin: "2rem",
-      }}
-    >
-      <div>
-        <Link
-          style={{ color: "#b388ff" }}
-          className="logo"
-          to="/category/women's%20clothing"
-        >
-          Woman's section
-        </Link>
-      </div>
-      <div>
-        <Link
-          style={{ color: "#b388ff" }}
-          className="logo"
-          to="/category/men's%20clothing"
-        >
-          Men's section
-        </Link>
-      </div>
-      <div>
-        <Link
-          style={{ color: "#b388ff" }}
-          className="logo"
-          to="/category/jewelery"
-        >
-          Jewelery
-        </Link>
-      </div>
-      <div>
-        <Link
-          style={{ color: "#b388ff" }}
-          className="logo"
-          to="/category/electronics"
-        >
-          Electronics
-        </Link>
-      </div>
-    </div>
+    <S.CategoryContainer>
+      <S.CategoryItem onClick={handleWomenCategory}>For Women</S.CategoryItem>
+      <S.CategoryItem onClick={handleMenCategory}>For Men</S.CategoryItem>
+      <S.CategoryItem onClick={handleJeweleryCategory}>Jewelery</S.CategoryItem>
+      <S.CategoryItem onClick={handleElectronicsCategory}>
+        Electronics
+      </S.CategoryItem>
+    </S.CategoryContainer>
   );
 };
 
