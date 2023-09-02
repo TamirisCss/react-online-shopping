@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { themeColors } from "../../styles/theme-colors";
 
 export const Nav = styled.nav`
   position: static;
@@ -10,7 +11,7 @@ export const Nav = styled.nav`
 `;
 
 export const Logo = styled.h1`
-  color: #f27457;
+  color: ${themeColors.blue_color};
   cursor: pointer;
 `;
 
@@ -18,5 +19,5 @@ export const NavIcons = styled.u`
   display: flex;
   gap: 2rem;
   cursor: pointer;
-  color: #f27457;
+  color: ${themeColors.blue_color};
 `;

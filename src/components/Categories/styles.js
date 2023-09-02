@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import { themeColors } from "../../styles/theme-colors";
 
 export const CategoryContainer = styled.div`
   margin: 1rem 2rem;
 
-  background: #ffffff;
+  background: ${themeColors.white};
   display: flex;
   justify-content: space-around;
-  border: #f27457 2px solid;
+  border: ${themeColors.blue_color} 2px solid;
 `;
 
 export const CategoryItem = styled.h3`
-  color: #f27457;
+  color: ${themeColors.blue_color};
   cursor: pointer;
 `;
