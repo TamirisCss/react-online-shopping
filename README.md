@@ -1,11 +1,12 @@
 # React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [live app here](https://online-shopping20.netlify.app/)
 
 ### Building with
 
 - React
 - axios
+- styled components
 - Material ui
 - [FakeStore API](https://fakestoreapi.com/docs)
 
