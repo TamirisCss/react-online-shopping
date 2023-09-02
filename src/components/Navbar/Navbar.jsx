@@ -9,7 +9,6 @@ import { CartContext, FavoriteContext } from "../../contexts";
 import SearchBar from "../SearchBar/SearchBar";
 
 import * as S from "./styles";
-import { Star } from "@mui/icons-material";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);

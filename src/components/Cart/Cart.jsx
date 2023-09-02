@@ -7,7 +7,6 @@ import CartProduct from "../CartProduct/CartProduct";
 import emptyCart from "../../images/empty-cart-img.jpeg";
 
 import "./Cart.css";
-import Fill from "../Fill/Fill";
 import { CartContext } from "../../contexts";
 
 const Cart = () => {
@@ -31,12 +30,14 @@ const Cart = () => {
     const arrayUnique = [
       ...new Map(cartItems.map((item) => [item.id, item])).values(),
     ];
+    // eslint-disable-next-line
     arrayUnique.map((element) => {
       const newArrray = cartItems.filter((item) => item.id === element.id);
       element.quantity = newArrray.length;
     });
     setGroupItems(arrayUnique);
     return () => {};
+    // eslint-disable-next-line
   }, [cartItems]); // toda vez que o cart item mudar
 
   return (
@@ -94,8 +95,6 @@ const Cart = () => {
           </div>
         )}
       </div>
-
-      <Fill />
     </div>
   );
 };

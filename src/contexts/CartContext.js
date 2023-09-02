@@ -22,6 +22,7 @@ export function CartProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     console.log(localStorage.getItem("cartItems"));
+    // eslint-disable-next-line
   }, [cartItems.length]);
 
   return (
@@ -30,7 +31,6 @@ export function CartProvider({ children }) {
         cartItems,
         addToCart,
         removeItem,
-   
       }}
     >
       {children}

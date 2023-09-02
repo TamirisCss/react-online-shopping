@@ -18,6 +18,7 @@ const ProductDetails = () => {
     };
     getItem(id);
     console.log(getItem);
+    // eslint-disable-next-line
   }, []);
 
   return (
