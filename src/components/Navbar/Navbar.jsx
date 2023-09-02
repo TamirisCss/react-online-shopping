@@ -1,16 +1,20 @@
 import React, { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useSearch } from "../../contexts/SearchContext";
 
 import StarIcon from "@mui/icons-material/Star";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { CartContext, FavoriteContext } from "../../contexts";
+import SearchBar from "../SearchBar/SearchBar";
 
 import * as S from "./styles";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
   const { favoriteItems } = useContext(FavoriteContext);
+  const { setSearchValue } = useSearch();
+  const [localSearchValue, setLocalSearchValue] = useState("");
 
   const navigate = useNavigate();
 
@@ -29,10 +33,16 @@ const Navbar = () => {
     console.log("Cart");
   };
 
+  const handleSearchChange = (e) => {
+    const newValue = e.target.value;
+    setLocalSearchValue(newValue);
+    setSearchValue(newValue);
+  };
+
   return (
     <S.Nav className="nav-bar">
       <S.Logo onClick={handleBackToHome}>Online Shopping</S.Logo>
-
+      <SearchBar value={localSearchValue} onChange={handleSearchChange} />
       <S.NavIcons>
         <div divContent={favoriteItems.length}>
           <StarIcon onClick={handleFavorites} />

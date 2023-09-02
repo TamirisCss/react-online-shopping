@@ -1,52 +1,24 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-
 import Product from "../Product/Product";
-import SearchBar from "../SearchBar/SearchBar";
+import { useSearch } from "../../contexts/SearchContext";
 
 const Products = () => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-
-  const onSearchChange = (event) => {
-    setSearchValue(event.target.value);
-  };
+  const { data, loading, searchValue } = useSearch();
 
   const filterSearch = (product) => {
     return (
-      product.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-      product.category.toLowerCase().includes(searchValue.toLocaleLowerCase())
+      product.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchValue.toLowerCase())
     );
   };
 
-  useEffect(() => {
-    setLoading(true);
-    axios({
-      method: "GET",
-      url: "https://fakestoreapi.com/products",
-    })
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setLoading(false));
-  }, []);
-
-  const hasProducts = data.length > 0;
-
   return (
     <>
-      {hasProducts ? (
-        <SearchBar onChange={onSearchChange} />
-      ) : (
-        loading && (
-          <h1>
-            <CircularProgress />
-          </h1>
-        )
+      {loading && (
+        <h1>
+          <CircularProgress />
+        </h1>
       )}
       <div
         sx={{
@@ -60,7 +32,7 @@ const Products = () => {
         {data
           .filter(filterSearch)
           .map(({ id, image, title, price, category }) => (
-            <div>
+            <div key={id}>
               <Product
                 id={id}
                 image={image}

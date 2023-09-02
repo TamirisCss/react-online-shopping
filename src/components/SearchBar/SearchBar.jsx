@@ -1,8 +1,7 @@
 import React from "react";
-
 import TextField from "@mui/material/TextField";
 
-const SearchBar = ({ onChange }) => {
+const SearchBar = ({ value, onSearch, onChange }) => {
   return (
     <div
       className="search-input"
@@ -28,10 +27,15 @@ const SearchBar = ({ onChange }) => {
           fullWidth
           label="FilterSearch"
           id="Filter"
-          onChange={onChange}
+          value={value}
+          onChange={(e) => {
+            onChange(e);
+            onSearch(e.target.value);
+          }}
         />
       </div>
     </div>
   );
 };
+
 export default SearchBar;
