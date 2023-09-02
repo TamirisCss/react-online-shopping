@@ -15,8 +15,9 @@ export const Logo = styled.h1`
   cursor: pointer;
 `;
 
-export const NavIcons = styled.u`
+export const NavContent = styled.u`
   display: flex;
+  align-items: center;
   gap: 2rem;
   cursor: pointer;
   color: ${themeColors.blue_color};

@@ -9,6 +9,7 @@ import { CartContext, FavoriteContext } from "../../contexts";
 import SearchBar from "../SearchBar/SearchBar";
 
 import * as S from "./styles";
+import { Star } from "@mui/icons-material";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
@@ -42,15 +43,15 @@ const Navbar = () => {
   return (
     <S.Nav className="nav-bar">
       <S.Logo onClick={handleBackToHome}>Online Shopping</S.Logo>
-      <SearchBar value={localSearchValue} onChange={handleSearchChange} />
-      <S.NavIcons>
+      <S.NavContent>
+        <SearchBar value={localSearchValue} onChange={handleSearchChange} />
         <div divContent={favoriteItems.length}>
           <StarIcon onClick={handleFavorites} />
         </div>
         <div divContent={cartItems.length}>
           <ShoppingCartIcon onClick={handleCart} />
         </div>
-      </S.NavIcons>
+      </S.NavContent>
     </S.Nav>
   );
 };
