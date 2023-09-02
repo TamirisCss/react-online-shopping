@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import Favorite from "@mui/icons-material/Favorite";
@@ -6,7 +6,10 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import IconButton from "@mui/material/IconButton";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+
 import { CartContext, FavoriteContext } from "../../contexts";
+
+import * as S from "./styles";
 
 const Product = (
   { id, image, price, title, category, showTrash = false, quantity },
@@ -20,78 +23,75 @@ const Product = (
     return result !== undefined;
   };
 
+  const navigate = useNavigate();
+
+  const handleProductDetails = () => {
+    navigate(`/productDetails/${id}`);
+  };
+
+  const truncateTitle = (text, limit) => {
+    if (!text) {
+      return "";
+    }
+
+    const words = text.split(" ");
+    if (words.length <= limit) {
+      return text;
+    }
+
+    let truncatedText = "";
+    for (let i = 0; i < limit; i++) {
+      truncatedText += words[i] + " ";
+    }
+    return truncatedText.trim() + "...";
+  };
+
+  console.log(title);
+
   return (
-    <>
-      <div
-        sx={{
-          padding: "2rem",
-          alignItems: "baseline",
-        }}
-      >
-        <div
-          sx={{
-            width: "370px",
-            height: "500px",
-            margin: "2rem",
-          }}
-        >
-          <div>
-            <div key={id} className="ProductCard">
-              <div className="imageContainer">
-                <img src={image} alt="#" className="imageProduct " />
-              </div>
-
-              <h6>{title}</h6>
-              <h6>{`Price: $${price}`}</h6>
-              {quantity && <h6>{`Quantity: ${quantity}`}</h6>}
-              <h6>{`Category: ${category}`}</h6>
-            </div>
-            <div className="iconsContainer">
-              <IconButton
-                style={{ color: "#b388ff" }}
-                onClick={() => addFavorite(id, image, title, price, category)}
-                aria-label="add to favorites"
-              >
-                {isCardInFavouriteItems() ? (
-                  <Favorite />
-                ) : (
-                  <FavoriteBorderIcon />
-                )}
-              </IconButton>
-
-              <IconButton
-                style={{ color: "#b388ff" }}
-                aria-label="add to cart"
-                onClick={() => addToCart(id, image, title, price, category)}
-              >
-                <AddShoppingCartIcon />
-              </IconButton>
-              <IconButton>
-                {showTrash && (
-                  <DeleteOutlinedIcon
-                    style={{ color: "#b388ff" }}
-                    onClick={() => removeItem(index)}
-                  >
-                    Remove
-                  </DeleteOutlinedIcon>
-                )}
-              </IconButton>
-            </div>
+    <S.ProductContainer>
+      <S.ProductCard>
+        <S.ProductItem key={id}>
+          <div className="imageContainer">
+            <img src={image} alt="#" className="imageProduct " />
           </div>
-          <Link to={`/productDetails/${id}`}>
-            <button
-              style={{
-                color: "#b388ff",
-                outline: "none",
-              }}
-              size="small"
-            >
-              More details
-            </button>
-          </Link>
-        </div>
-      </div>
-    </>
+
+          <S.ProductInfos>
+            <p>{truncateTitle(title, 6)}</p>
+            <p>{`Price: $${price}`}</p>
+            {quantity && <p>{`Quantity: ${quantity}`}</p>}
+          </S.ProductInfos>
+        </S.ProductItem>
+        <S.IconsContainer className="iconsContainer">
+          <IconButton
+            style={{ color: "#92B5E8", padding: "0" }}
+            onClick={() => addFavorite(id, image, title, price, category)}
+            aria-label="add to favorites"
+          >
+            {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
+          </IconButton>
+
+          <IconButton
+            style={{ color: "#92B5E8" }}
+            aria-label="add to cart"
+            onClick={() => addToCart(id, image, title, price, category)}
+          >
+            <AddShoppingCartIcon />
+          </IconButton>
+          <IconButton>
+            {showTrash && (
+              <DeleteOutlinedIcon
+                style={{ color: "#92B5E8" }}
+                onClick={() => removeItem(index)}
+              >
+                Remove
+              </DeleteOutlinedIcon>
+            )}
+          </IconButton>
+        </S.IconsContainer>
+        <S.Details onClick={handleProductDetails}>more details...</S.Details>
+      </S.ProductCard>
+    </S.ProductContainer>
   );
 };
 

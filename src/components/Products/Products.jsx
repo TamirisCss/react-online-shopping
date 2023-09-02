@@ -3,6 +3,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Product from "../Product/Product";
 import { useSearch } from "../../contexts/SearchContext";
 
+import * as S from "./styles";
+
 const Products = () => {
   const { data, loading, searchValue } = useSearch();
 
@@ -14,36 +16,22 @@ const Products = () => {
   };
 
   return (
-    <>
-      {loading && (
-        <h1>
-          <CircularProgress />
-        </h1>
-      )}
-      <div
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-        }}
-      >
-        {data
-          .filter(filterSearch)
-          .map(({ id, image, title, price, category }) => (
-            <div key={id}>
-              <Product
-                id={id}
-                image={image}
-                title={title}
-                price={price}
-                category={category}
-              />
-            </div>
-          ))}
-      </div>
-    </>
+    <S.ProductsContainer>
+      {loading && <CircularProgress />}
+      {data
+        .filter(filterSearch)
+        .map(({ id, image, title, price, category }) => (
+          <div key={id}>
+            <Product
+              id={id}
+              image={image}
+              title={title}
+              price={price}
+              category={category}
+            />
+          </div>
+        ))}
+    </S.ProductsContainer>
   );
 };
 

@@ -8,6 +8,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   justify-content: space-around;
   border: ${themeColors.blue_color} 2px solid;
+  border-radius: 10px;
 `;
 
 export const CategoryItem = styled.h3`
