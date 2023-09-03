@@ -1,11 +1,8 @@
 import React from "react";
 import { useParams } from "react-router";
-
 import CircularProgress from "@mui/material/CircularProgress";
-
 import Product from "../Product/Product";
 import { useSearch } from "../../contexts/SearchContext";
-
 import * as S from "./styles";
 
 const ProductDetails = () => {
@@ -30,7 +27,9 @@ const ProductDetails = () => {
           />
         </div>
       ) : (
-        <CircularProgress />
+        <div className="loading-container">
+          <CircularProgress />
+        </div>
       )}
     </S.ProductDetailsContainer>
   );
