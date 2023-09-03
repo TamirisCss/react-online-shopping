@@ -44,12 +44,18 @@ const Navbar = () => {
       <S.Logo onClick={handleBackToHome}>Online Shopping</S.Logo>
       <S.NavContent>
         <SearchBar value={localSearchValue} onChange={handleSearchChange} />
-        <div divContent={favoriteItems.length}>
-          <StarIcon onClick={handleFavorites} />
-        </div>
-        <div divContent={cartItems.length}>
-          <ShoppingCartIcon onClick={handleCart} />
-        </div>
+        <S.IconContainer className="icon-container" onClick={handleFavorites}>
+          <StarIcon />
+          {favoriteItems.length >= 0 && (
+            <S.Badge className="badge">{favoriteItems.length}</S.Badge>
+          )}
+        </S.IconContainer>
+        <S.IconContainer className="icon-container" onClick={handleCart}>
+          <ShoppingCartIcon />
+          {cartItems.length >= 0 && (
+            <S.Badge className="badge">{cartItems.length}</S.Badge>
+          )}
+        </S.IconContainer>
       </S.NavContent>
     </S.Nav>
   );

@@ -22,3 +22,15 @@ export const NavContent = styled.u`
   cursor: pointer;
   color: ${themeColors.blue_color};
 `;
+
+export const IconContainer = styled.div`
+  position: relative;
+`;
+
+export const Badge = styled.span`
+  position: absolute;
+  top: -1rem;
+  color: ${themeColors.orange_color};
+  font-size: 1rem;
+  font-weight: 700;
+`;
