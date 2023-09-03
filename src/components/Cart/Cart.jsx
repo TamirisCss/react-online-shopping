@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 
 import emptyCart from "../../images/empty-cart-img.jpeg";
-import CircularProgress from "@mui/material/CircularProgress";
 
 import { CartContext } from "../../contexts";
 import Product from "../Product/Product";
+
+import { useLoading } from "../../hooks/useLoading";
+import Loading from "../Loading/Loading";
 
 import * as S from "./styles";
 
@@ -12,7 +14,7 @@ const Cart = (showTrash) => {
   const [quantityItems, setQuantityItems] = useState(0);
   const [priceItem, setPriceItem] = useState(0);
   const { cartItems, groupedItems } = useContext(CartContext);
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading } = useLoading;
 
   const filterPrice = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
@@ -27,16 +29,13 @@ const Cart = (showTrash) => {
     filterPrice();
     increase();
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
     // eslint-disable-next-line
   }, [cartItems]);
 
   return (
     <S.CartContainer>
       {isLoading ? (
-        <CircularProgress />
+        <Loading />
       ) : (
         <>
           {cartItems.length === 0 ? (

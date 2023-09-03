@@ -1,13 +1,15 @@
 import React from "react";
 
-import CircularProgress from "@mui/material/CircularProgress";
 import Product from "../Product/Product";
 import { useSearch } from "../../contexts/SearchContext";
+import { useLoading } from "../../hooks/useLoading";
+import Loading from "../Loading/Loading";
 
 import * as S from "./styles";
 
 const Products = () => {
-  const { data, loading, searchValue } = useSearch();
+  const { data, searchValue } = useSearch();
+  const { isLoading } = useLoading;
 
   const filterSearch = (product) => {
     return (
@@ -32,21 +34,24 @@ const Products = () => {
 
   return (
     <S.ProductsContainer>
-      {loading && <CircularProgress />}
-      {shuffledData
-        .filter(filterSearch)
-        .map(({ id, image, title, price, category, rating }) => (
-          <div key={id}>
-            <Product
-              id={id}
-              image={image}
-              title={title}
-              price={price}
-              category={category}
-              rating={rating.rate}
-            />
-          </div>
-        ))}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        shuffledData
+          .filter(filterSearch)
+          .map(({ id, image, title, price, category, rating }) => (
+            <div key={id}>
+              <Product
+                id={id}
+                image={image}
+                title={title}
+                price={price}
+                category={category}
+                rating={rating.rate}
+              />
+            </div>
+          ))
+      )}
     </S.ProductsContainer>
   );
 };

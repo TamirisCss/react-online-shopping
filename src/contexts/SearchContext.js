@@ -1,27 +1,30 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useLoading } from "../hooks/useLoading";
 
 const SearchContext = createContext();
 
 export const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+
+  const { loading, startLoading, stopLoading } = useLoading();
 
   const fetchData = async () => {
     try {
-      setLoading(true);
+      startLoading();
       const response = await axios.get("https://fakestoreapi.com/products");
       setData(response.data);
     } catch (error) {
       console.error("Server error:", error);
     } finally {
-      setLoading(false);
+      stopLoading();
     }
   };
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   return (

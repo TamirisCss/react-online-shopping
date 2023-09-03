@@ -1,26 +1,22 @@
 import React, { useContext, useState, useEffect } from "react";
 
 import emptyFav from "../../images/empty-fav-img.png";
-import CircularProgress from "@mui/material/CircularProgress";
 import { FavoriteContext } from "../../contexts";
 import Product from "../Product/Product";
+
+import { useLoading } from "../../hooks/useLoading";
+import Loading from "../Loading/Loading";
 
 import * as S from "./styles";
 
 const Favorites = () => {
   const { favoriteItems } = useContext(FavoriteContext);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
+  const { isLoading } = useLoading;
 
   return (
     <S.FavContainer>
       {isLoading ? (
-        <CircularProgress />
+        <Loading />
       ) : favoriteItems.length === 0 ? (
         <S.EmptyFavContent>
           <p>Your favorites is empty</p>
