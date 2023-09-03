@@ -1,50 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router";
 
+import CircularProgress from "@mui/material/CircularProgress";
+
 import Product from "../Product/Product";
+import { useSearch } from "../../contexts/SearchContext";
+
+import * as S from "./styles";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [idData, setIdData] = useState();
+  const { data } = useSearch();
 
-  useEffect(() => {
-    const getItem = async (id) => {
-      console.log(id);
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      console.log(response);
-      const data = await response.json();
-      setIdData(data);
-      console.log(data);
-    };
-    getItem(id);
-    console.log(getItem);
-    // eslint-disable-next-line
-  }, []);
+  const product = data.find((item) => item.id === parseInt(id));
 
   return (
-    <>
-      {idData && (
-        <>
-          <div sx={{ flexGrow: 1 }}>
-            <div container spacing={2}>
-              <div style={{ padding: "6rem" }} item xs={10} md={12}>
-                <Product
-                  image={idData.image}
-                  title={idData.title}
-                  price={idData.price}
-                  category={idData.category}
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-      {!idData && (
-        <div sx={{ minHeight: "60vh" }}>
-          <h2>Loading...</h2>
+    <S.ProductDetailsContainer>
+      {product ? (
+        <div>
+          <Product
+            image={product.image}
+            title={product.title}
+            price={product.price}
+            category={product.category}
+            rating={product.rating.rate}
+            showDetails={false}
+            showCategory={true}
+            showRating={true}
+          />
         </div>
+      ) : (
+        <CircularProgress />
       )}
-    </>
+    </S.ProductDetailsContainer>
   );
 };
 

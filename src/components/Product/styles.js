@@ -12,6 +12,7 @@ export const ProductCard = styled.div`
   justify-content: space-between;
   height: 400px;
   padding: 5px;
+  background-color: ${themeColors.dark_white};
   border: 2px solid ${themeColors.blue_color};
   border-radius: 10px;
 `;

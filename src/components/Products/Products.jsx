@@ -1,4 +1,5 @@
 import React from "react";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import Product from "../Product/Product";
 import { useSearch } from "../../contexts/SearchContext";
@@ -34,7 +35,7 @@ const Products = () => {
       {loading && <CircularProgress />}
       {shuffledData
         .filter(filterSearch)
-        .map(({ id, image, title, price, category }) => (
+        .map(({ id, image, title, price, category, rating }) => (
           <div key={id}>
             <Product
               id={id}
@@ -42,6 +43,7 @@ const Products = () => {
               title={title}
               price={price}
               category={category}
+              rating={rating.rate}
             />
           </div>
         ))}

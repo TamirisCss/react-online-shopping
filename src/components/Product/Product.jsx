@@ -12,7 +12,19 @@ import { CartContext, FavoriteContext } from "../../contexts";
 import * as S from "./styles";
 
 const Product = (
-  { id, image, price, title, category, showTrash = false, quantity },
+  {
+    id,
+    image,
+    price,
+    title,
+    category,
+    quantity,
+    rating,
+    showCategory,
+    showRating,
+    showTrash = false,
+    showDetails = true,
+  },
   index
 ) => {
   const { addToCart, removeItem } = useContext(CartContext);
@@ -46,11 +58,9 @@ const Product = (
     return truncatedText.trim() + "...";
   };
 
-  console.log(title);
-
   return (
     <S.ProductContainer>
-      <S.ProductCard>
+      <S.ProductCard className="productDetails">
         <S.ProductItem key={id}>
           <div className="imageContainer">
             <img src={image} alt="#" className="imageProduct " />
@@ -60,6 +70,8 @@ const Product = (
             <p>{truncateTitle(title, 6)}</p>
             <p>{`Price: $${price}`}</p>
             {quantity && <p>{`Quantity: ${quantity}`}</p>}
+            {showCategory && <p>{`Category: ${category}`}</p>}
+            {showRating && <p>{`Rating: ${rating}`}</p>}
           </S.ProductInfos>
         </S.ProductItem>
         <S.IconsContainer className="iconsContainer">
@@ -89,7 +101,10 @@ const Product = (
             )}
           </IconButton>
         </S.IconsContainer>
-        <S.Details onClick={handleProductDetails}>more details...</S.Details>
+
+        {showDetails && (
+          <S.Details onClick={handleProductDetails}>more details...</S.Details>
+        )}
       </S.ProductCard>
     </S.ProductContainer>
   );
