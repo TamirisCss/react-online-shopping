@@ -8,7 +8,7 @@ export const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
 
-  const { loading, startLoading, stopLoading } = useLoading();
+  const { startLoading, stopLoading } = useLoading();
 
   const fetchData = async () => {
     try {
@@ -28,9 +28,7 @@ export const SearchProvider = ({ children }) => {
   }, []);
 
   return (
-    <SearchContext.Provider
-      value={{ searchValue, setSearchValue, data, loading }}
-    >
+    <SearchContext.Provider value={{ searchValue, setSearchValue, data }}>
       {children}
     </SearchContext.Provider>
   );
