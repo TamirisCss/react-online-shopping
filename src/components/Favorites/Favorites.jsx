@@ -2,40 +2,35 @@ import React, { useContext } from "react";
 
 import emptyFav from "../../images/empty-fav-img.png";
 import { FavoriteContext } from "../../contexts";
+import Product from "../Product/Product";
+
+import * as S from "./styles";
 
 const Favorites = () => {
   const { favoriteItems } = useContext(FavoriteContext);
 
   return (
-    <div>
+    <S.FavContainer>
       {favoriteItems.length === 0 ? (
-        <div>
-          <h2>Your favorite is empty</h2>
-          <img src={emptyFav} alt="favorite empty" />
-        </div>
+        <S.EmptyFavContent>
+          <p>Your favorites is empty</p>
+          <img src={emptyFav} alt="favorites empty" />
+        </S.EmptyFavContent>
       ) : (
-        <div
-          sx={{
-            minHeight: "100vh",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "1rem",
-          }}
-        >
+        <S.ProductContainer>
           {favoriteItems.map(({ id, title, image, price, category }) => (
-            <div
+            <Product
               key={id}
               id={id}
-              title={title}
               image={image}
               price={price}
+              title={title}
               category={category}
-            ></div>
+            />
           ))}
-        </div>
+        </S.ProductContainer>
       )}
-    </div>
+    </S.FavContainer>
   );
 };
 

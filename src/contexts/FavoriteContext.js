@@ -7,25 +7,23 @@ export function FavoriteProvider({ children }) {
   const [favoriteItems, setFavoriteItems] = useState(storage || []);
 
   const addFavorite = (id, image, title, price, category) => {
-    let newArray = [...favoriteItems];
-    //addicionando o item no favorite se o item ainda nao estiver adicionado
-    if (favoriteItems.find((element) => element.id === id) === undefined) {
-      newArray.push({ id, image, title, price, category });
+    const existingItem = favoriteItems.find((item) => item.id === id);
+
+    if (existingItem) {
+      // If the item is already in favorites, remove it
+      const updatedFavorites = favoriteItems.filter((item) => item.id !== id);
+      setFavoriteItems(updatedFavorites);
     } else {
-      //predicate pesquisa
-      const index = favoriteItems.findIndex((element) => element.id === id);
-      console.log(index);
-      newArray.splice(index, 1);
+      // Otherwise, add it to favorites
+      const newItem = { id, image, title, price, category };
+      setFavoriteItems([...favoriteItems, newItem]);
     }
-    console.log(newArray);
-    setFavoriteItems(newArray);
   };
 
   useEffect(() => {
     localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
-    // console.log(localStorage.getItem("favoriteItems"));
     // eslint-disable-next-line
-  }, [favoriteItems.length]);
+  }, [favoriteItems]);
 
   return (
     <FavoriteContext.Provider value={{ favoriteItems, addFavorite }}>
