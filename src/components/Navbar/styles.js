@@ -30,7 +30,7 @@ export const IconContainer = styled.div`
 export const Badge = styled.span`
   position: absolute;
   top: -1rem;
-  color: ${themeColors.orange_color};
+  color: ${themeColors.grey};
   font-size: 1rem;
   font-weight: 700;
 `;
