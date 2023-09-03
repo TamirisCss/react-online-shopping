@@ -13,6 +13,7 @@ const Cart = (showTrash) => {
   const [quantityItems, setQuantityItems] = useState(0);
   const [priceItem, setPriceItem] = useState(0);
   const { cartItems, groupedItems } = useContext(CartContext);
+  // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(true);
 
   const filterPrice = () => {
@@ -27,6 +28,7 @@ const Cart = (showTrash) => {
   useEffect(() => {
     filterPrice();
     increase();
+    // eslint-disable-next-line
   }, [cartItems]);
 
   return (
