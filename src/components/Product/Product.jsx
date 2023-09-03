@@ -63,7 +63,7 @@ const Product = (
       <S.ProductCard className="productDetails">
         <S.ProductItem key={id}>
           <div className="imageContainer">
-            <img src={image} alt="#" className="imageProduct " />
+            <img src={image} alt="product img" />
           </div>
 
           <S.ProductInfos>

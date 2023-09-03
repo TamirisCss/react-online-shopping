@@ -21,6 +21,7 @@ export const ProductItem = styled.div`
   width: 100%;
   .imageContainer {
     width: 100%;
+    height: 200px;
     img {
       width: 100%;
       height: 100%;
