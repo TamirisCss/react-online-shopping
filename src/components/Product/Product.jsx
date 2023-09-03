@@ -94,7 +94,7 @@ const Product = (
             {showTrash && (
               <DeleteOutlinedIcon
                 style={{ color: "#92B5E8" }}
-                onClick={() => removeItem(index)}
+                onClick={() => removeItem(id)}
               >
                 Remove
               </DeleteOutlinedIcon>

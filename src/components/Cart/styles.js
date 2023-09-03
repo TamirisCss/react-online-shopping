@@ -7,6 +7,7 @@ export const CartContainer = styled.div`
 export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const CartSumaryContainer = styled.div`

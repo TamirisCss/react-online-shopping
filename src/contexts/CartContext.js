@@ -13,10 +13,23 @@ export function CartProvider({ children }) {
     ]);
   };
 
-  const removeItem = (index) => {
-    const cartItem = [...cartItems];
-    cartItem.splice(index, 1);
-    setCartItems(cartItem);
+  const removeItem = (id) => {
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart);
+  };
+
+  const updateGroupedItems = (items) => {
+    return items.reduce((grouped, item) => {
+      if (grouped.some((groupedItem) => groupedItem.id === item.id)) {
+        const existingItem = grouped.find(
+          (groupedItem) => groupedItem.id === item.id
+        );
+        existingItem.quantity += 1;
+      } else {
+        grouped.push({ ...item, quantity: 1 });
+      }
+      return grouped;
+    }, []);
   };
 
   useEffect(() => {
@@ -25,10 +38,13 @@ export function CartProvider({ children }) {
     // eslint-disable-next-line
   }, [cartItems.length]);
 
+  const groupedItems = updateGroupedItems(cartItems);
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
+        groupedItems,
         addToCart,
         removeItem,
       }}

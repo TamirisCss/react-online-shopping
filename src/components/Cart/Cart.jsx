@@ -10,9 +10,8 @@ import * as S from "./styles";
 
 const Cart = (showTrash) => {
   const [quantityItems, setQuantityItems] = useState(0);
-  const [groupItems, setGroupItems] = useState([]);
   const [priceItem, setPriceItem] = useState(0);
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, groupedItems } = useContext(CartContext);
 
   const filterPrice = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
@@ -26,17 +25,6 @@ const Cart = (showTrash) => {
   useEffect(() => {
     filterPrice();
     increase();
-    const arrayUnique = [
-      ...new Map(cartItems.map((item) => [item.id, item])).values(),
-    ];
-    // eslint-disable-next-line
-    arrayUnique.map((element) => {
-      const newArrray = cartItems.filter((item) => item.id === element.id);
-      element.quantity = newArrray.length;
-    });
-    setGroupItems(arrayUnique);
-    return () => {};
-    // eslint-disable-next-line
   }, [cartItems]);
 
   return (
@@ -48,7 +36,7 @@ const Cart = (showTrash) => {
         </S.EmptyCartContent>
       ) : (
         <S.ProductContainer>
-          {groupItems.map(
+          {groupedItems.map(
             ({ id, title, image, price, category, quantity }, index) => (
               <Product
                 id={id}
