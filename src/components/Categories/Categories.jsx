@@ -1,36 +1,36 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import Product from "../Product/Product";
+import { useSearch } from "../../contexts/SearchContext";
 
 import * as S from "./styles";
 
 const Categories = () => {
-  const navigate = useNavigate();
+  const [category, setCategory] = useState([]);
+  const { data } = useSearch();
+  let params = useParams();
 
-  const handleWomenCategory = () => {
-    navigate("/category/women's%20clothing");
-  };
-
-  const handleMenCategory = () => {
-    navigate("/category/men's%20clothing");
-  };
-
-  const handleJeweleryCategory = () => {
-    navigate("/category/jewelery");
-  };
-
-  const handleElectronicsCategory = () => {
-    navigate("/category/electronics");
-  };
+  useEffect(() => {
+    const filteredCategory = data.filter(
+      (item) => item.category === params.type
+    );
+    setCategory(filteredCategory);
+    // eslint-disable-next-line
+  }, [data, params.type]);
 
   return (
-    <S.CategoryContainer>
-      <S.CategoryItem onClick={handleWomenCategory}>For Women</S.CategoryItem>
-      <S.CategoryItem onClick={handleMenCategory}>For Men</S.CategoryItem>
-      <S.CategoryItem onClick={handleJeweleryCategory}>Jewelery</S.CategoryItem>
-      <S.CategoryItem onClick={handleElectronicsCategory}>
-        Electronics
-      </S.CategoryItem>
-    </S.CategoryContainer>
+    <S.CategoriesContainer>
+      {category.map((item) => (
+        <Product
+          key={item.id}
+          id={item.id}
+          image={item.image}
+          title={item.title}
+          price={item.price}
+        />
+      ))}
+    </S.CategoriesContainer>
   );
 };
 

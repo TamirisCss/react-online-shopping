@@ -4,7 +4,7 @@ import Products from "./components/Products/Products";
 import {
   Cart,
   Categories,
-  Category,
+  CategoriesMenu,
   Favorites,
   Footer,
   Navbar,
@@ -16,10 +16,10 @@ export default function Overview() {
     <>
       <Router>
         <Navbar />
-        <Categories />
+        <CategoriesMenu />
         <Routes>
           <Route path="/" element={<Products />}></Route>
-          <Route path="/Category/:type" element={<Category />}></Route>
+          <Route path="/Category/:type" element={<Categories />}></Route>
           <Route
             path="/productDetails/:id"
             element={<ProductDetails />}
