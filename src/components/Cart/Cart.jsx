@@ -1,8 +1,6 @@
-import React from "react";
 import { useContext, useState, useEffect } from "react";
 
 import emptyCart from "../../images/empty-cart-img.jpeg";
-import CircularProgress from "@mui/material/CircularProgress";
 
 import { CartContext } from "../../contexts";
 import Product from "../Product/Product";
@@ -13,8 +11,6 @@ const Cart = (showTrash) => {
   const [quantityItems, setQuantityItems] = useState(0);
   const [priceItem, setPriceItem] = useState(0);
   const { cartItems, groupedItems } = useContext(CartContext);
-  // eslint-disable-next-line
-  const [isLoading, setIsLoading] = useState(true);
 
   const filterPrice = () => {
     const sum = cartItems.map(({ price }) => price).reduce((a, b) => a + b, 0);
@@ -28,45 +24,38 @@ const Cart = (showTrash) => {
   useEffect(() => {
     filterPrice();
     increase();
-    // eslint-disable-next-line
   }, [cartItems]);
 
   return (
     <S.CartContainer>
-      {isLoading ? (
-        <CircularProgress />
+      {cartItems.length === 0 ? (
+        <S.EmptyCartContent>
+          <p>Your basket is empty</p>
+          <img src={emptyCart} alt="cart empty" />
+        </S.EmptyCartContent>
       ) : (
-        <>
-          {cartItems.length === 0 ? (
-            <S.EmptyCartContent>
-              <p>Your basket is empty</p>
-              <img src={emptyCart} alt="cart empty" />
-            </S.EmptyCartContent>
-          ) : (
-            <S.ProductContainer>
-              {groupedItems.map(
-                ({ id, title, image, price, category, quantity }, index) => (
-                  <Product
-                    id={id}
-                    image={image}
-                    price={price}
-                    title={title}
-                    category={category}
-                    quantity={quantity}
-                    showTrash={showTrash}
-                    showDetails={false}
-                  />
-                )
-              )}
-            </S.ProductContainer>
+        <S.ProductContainer>
+          {groupedItems.map(
+            ({ id, title, image, price, category, quantity }, index) => (
+              <Product
+                id={id}
+                image={image}
+                price={price}
+                title={title}
+                category={category}
+                quantity={quantity}
+                showTrash={showTrash}
+                showDetails={false}
+              />
+            )
           )}
-          {cartItems.length > 0 && (
-            <S.CartSumaryContainer>
-              <p>{`Total items: ${quantityItems}`}</p>
-              <p>{`Total price: $${priceItem.toFixed(2)}`}</p>
-            </S.CartSumaryContainer>
-          )}
-        </>
+        </S.ProductContainer>
+      )}
+      {cartItems.length > 0 && (
+        <S.CartSumaryContainer>
+          <p>{`Total items: ${quantityItems}`}</p>
+          <p>{`Total price: $${priceItem.toFixed(2)}`}</p>
+        </S.CartSumaryContainer>
       )}
     </S.CartContainer>
   );
