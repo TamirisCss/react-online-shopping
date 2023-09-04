@@ -4,6 +4,10 @@ import { themeColors } from "../../styles/theme-colors";
 export const ProductContainer = styled.div`
   width: 350px;
   margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 486px) {
+    width: 330px;
+  }
 `;
 
 export const ProductCard = styled.div`

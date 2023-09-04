@@ -8,6 +8,10 @@ export const Nav = styled.nav`
   justify-content: space-between;
 
   margin: 0 2rem;
+
+  @media screen and (max-width: 486px) {
+    margin: 0 1rem;
+  }
 `;
 
 export const Logo = styled.h1`

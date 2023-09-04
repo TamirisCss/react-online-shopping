@@ -2,12 +2,21 @@ import styled from "styled-components";
 
 export const FavContainer = styled.div`
   margin: 2rem;
+
+  @media screen and (max-width: 486px) {
+    margin: 2rem 1rem;
+  }
 `;
 
 export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 778px) {
+    gap: 15px;
+    justify-content: center;
+  }
 `;
 
 export const EmptyFavContent = styled.div`

@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import { themeColors } from "../../styles/theme-colors";
 
-export const SearchBarContainer = styled.div``;
+export const SearchBarContainer = styled.div`
+  @media screen and (max-width: 486px) {
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+  }
+  @media screen and (max-width: 486px) {
+    left: 1rem;
+  }
+`;
 
 export const SearchBarInput = styled.input`
   border: 2px solid ${themeColors.blue_color};
