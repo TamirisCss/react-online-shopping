@@ -43,7 +43,13 @@ const Navbar = () => {
     <S.Nav className="nav-bar">
       <S.Logo onClick={handleBackToHome}>Online Shopping</S.Logo>
       <S.NavContent>
-        <SearchBar value={localSearchValue} onChange={handleSearchChange} />
+        {window.location.pathname === "/" && (
+          <SearchBar
+            value={localSearchValue}
+            onChange={handleSearchChange}
+            hide={false} // Exibir a SearchBar
+          />
+        )}
         <S.IconContainer className="icon-container" onClick={handleFavorites}>
           <StarIcon />
           {favoriteItems.length >= 0 && (
