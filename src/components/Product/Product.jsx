@@ -1,32 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
-import Favorite from "@mui/icons-material/Favorite";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import IconButton from "@mui/material/IconButton";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
+import { BsCartPlus, BsTrash3 } from "react-icons/bs";
 
 import { CartContext, FavoriteContext } from "../../contexts";
 
 import * as S from "./styles";
 
-const Product = (
-  {
-    id,
-    image,
-    price,
-    title,
-    category,
-    quantity,
-    rating,
-    showCategory,
-    showRating,
-    showTrash = false,
-    showDetails = true,
-  },
-  index
-) => {
+const Product = ({
+  id,
+  image,
+  price,
+  title,
+  category,
+  quantity,
+  rating,
+  showCategory,
+  showRating,
+  showTrash = false,
+  showDetails = true,
+}) => {
   const { addToCart, removeItem } = useContext(CartContext);
   const { favoriteItems, addFavorite } = useContext(FavoriteContext);
 
@@ -75,31 +69,30 @@ const Product = (
           </S.ProductInfos>
         </S.ProductItem>
         <S.IconsContainer className="iconsContainer">
-          <IconButton
-            style={{ color: "#92B5E8", padding: "0" }}
+          <S.IconContent
             onClick={() => addFavorite(id, image, title, price, category)}
             aria-label="add to favorites"
           >
-            {isCardInFavouriteItems() ? <Favorite /> : <FavoriteBorderIcon />}
-          </IconButton>
+            {isCardInFavouriteItems() ? (
+              <MdOutlineFavorite size={25} />
+            ) : (
+              <MdFavoriteBorder size={25} />
+            )}
+          </S.IconContent>
 
-          <IconButton
-            style={{ color: "#92B5E8" }}
+          <S.IconContent
             aria-label="add to cart"
             onClick={() => addToCart(id, image, title, price, category)}
           >
-            <AddShoppingCartIcon />
-          </IconButton>
-          <IconButton>
+            <BsCartPlus size={25} />
+          </S.IconContent>
+          <S.IconContent>
             {showTrash && (
-              <DeleteOutlinedIcon
-                style={{ color: "#92B5E8" }}
-                onClick={() => removeItem(id)}
-              >
+              <BsTrash3 size={25} onClick={() => removeItem(id)}>
                 Remove
-              </DeleteOutlinedIcon>
+              </BsTrash3>
             )}
-          </IconButton>
+          </S.IconContent>
         </S.IconsContainer>
 
         {showDetails && (

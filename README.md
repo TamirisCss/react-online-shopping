@@ -7,7 +7,6 @@
 - React
 - axios
 - styled components
-- Material ui
 - [FakeStore API](https://fakestoreapi.com/docs)
 
 ### Overview

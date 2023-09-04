@@ -2,8 +2,8 @@ import React, { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useSearch } from "../../contexts/SearchContext";
 
-import StarIcon from "@mui/icons-material/Star";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { AiFillStar } from "react-icons/ai";
+import { BsCartFill } from "react-icons/bs";
 
 import { CartContext, FavoriteContext } from "../../contexts";
 import SearchBar from "../SearchBar/SearchBar";
@@ -51,13 +51,13 @@ const Navbar = () => {
           />
         )}
         <S.IconContainer className="icon-container" onClick={handleFavorites}>
-          <StarIcon />
+          <AiFillStar size={25} />
           {favoriteItems.length >= 0 && (
             <S.Badge className="badge">{favoriteItems.length}</S.Badge>
           )}
         </S.IconContainer>
         <S.IconContainer className="icon-container" onClick={handleCart}>
-          <ShoppingCartIcon />
+          <BsCartFill size={25} />
           {cartItems.length >= 0 && (
             <S.Badge className="badge">{cartItems.length}</S.Badge>
           )}

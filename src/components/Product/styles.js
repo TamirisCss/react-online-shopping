@@ -45,6 +45,10 @@ export const IconsContainer = styled.div`
   gap: 1rem;
 `;
 
+export const IconContent = styled.div`
+  color: ${themeColors.blue_color};
+`;
+
 export const Details = styled.p`
   color: ${themeColors.blue_color};
   cursor: pointer;
