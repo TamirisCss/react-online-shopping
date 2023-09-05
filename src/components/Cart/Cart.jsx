@@ -34,6 +34,7 @@ const Cart = (showTrash) => {
 
   return (
     <S.CartContainer>
+      <p className="title">Cart</p>
       {isLoading ? (
         <Loading />
       ) : (

@@ -18,6 +18,7 @@ const ProductDetails = () => {
 
   return (
     <S.ProductDetailsContainer>
+      <p className="title">Details</p>
       {isLoading ? (
         <Loading />
       ) : (

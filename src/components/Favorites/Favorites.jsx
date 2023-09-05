@@ -15,6 +15,7 @@ const Favorites = () => {
 
   return (
     <S.FavContainer>
+      <p className="title">Favorites</p>
       {isLoading ? (
         <Loading />
       ) : favoriteItems.length === 0 ? (

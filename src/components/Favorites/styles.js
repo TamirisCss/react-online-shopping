@@ -1,10 +1,19 @@
 import styled from "styled-components";
+import { themeColors } from "../../styles/theme-colors";
 
 export const FavContainer = styled.div`
   margin: 2rem;
 
+  .title {
+    width: 100%;
+    color: ${themeColors.grey_3};
+  }
+
   @media screen and (max-width: 486px) {
     margin: 2rem 1rem;
+    .title {
+      text-align: center;
+    }
   }
 `;
 

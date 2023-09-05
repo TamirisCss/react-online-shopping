@@ -17,11 +17,6 @@ export const CategoryContainer = styled.div`
     gap: 15px;
     flex-wrap: wrap;
   }
-
-  @media screen and (max-width: 486px) {
-    /* margin: 2.2rem 1rem 1rem 1rem; */
-    /* width: calc(100% - 2rem); */
-  }
 `;
 
 export const CategoryItem = styled.h3`
