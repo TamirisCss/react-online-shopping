@@ -4,6 +4,5 @@ body {
   font-size: 1rem;
   align-content: baseline;
   position: relative;
-  min-height: calc(100vh - 150px -70px);
   font-family: "Poppins", sans-serif;
 }

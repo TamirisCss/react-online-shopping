@@ -8,7 +8,11 @@ export const SearchBarContainer = styled.div`
     left: 2rem;
   }
   @media screen and (max-width: 486px) {
-    left: 1rem;
+    left: 0;
+    width: 100%;
+    background-color: ${themeColors.white};
+    padding-left: 2rem;
+    padding-bottom: 10px;
   }
 `;
 

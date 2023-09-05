@@ -6,29 +6,22 @@ import {
   Categories,
   CategoriesMenu,
   Favorites,
-  Footer,
   Navbar,
   ProductDetails,
 } from "./components";
 
 export default function Overview() {
   return (
-    <>
-      <Router>
-        <Navbar />
-        <CategoriesMenu />
-        <Routes>
-          <Route path="/" element={<Products />}></Route>
-          <Route path="/Category/:type" element={<Categories />}></Route>
-          <Route
-            path="/productDetails/:id"
-            element={<ProductDetails />}
-          ></Route>
-          <Route path="/favorites" element={<Favorites />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-        </Routes>
-        <Footer />
-      </Router>
-    </>
+    <Router>
+      <Navbar />
+      <CategoriesMenu />
+      <Routes>
+        <Route path="/" element={<Products />}></Route>
+        <Route path="/Category/:type" element={<Categories />}></Route>
+        <Route path="/productDetails/:id" element={<ProductDetails />}></Route>
+        <Route path="/favorites" element={<Favorites />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+      </Routes>
+    </Router>
   );
 }

@@ -2,15 +2,18 @@ import styled from "styled-components";
 import { themeColors } from "../../styles/theme-colors";
 
 export const Nav = styled.nav`
-  position: static;
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: ${themeColors.white};
 
-  margin: 0 2rem;
+  padding: 0 2rem;
+  width: calc(100% - 4rem);
 
-  @media screen and (max-width: 486px) {
-    margin: 0 1rem;
+  @media screen and (max-width: 554px) {
+    margin-bottom: 2rem;
   }
 `;
 
