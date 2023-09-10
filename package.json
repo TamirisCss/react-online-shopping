@@ -9,7 +9,7 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.3",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "gh-pages": "^4.0.0",
@@ -45,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "install": "^0.13.0",
+    "jest-styled-components": "^7.1.1"
   }
 }
